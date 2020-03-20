@@ -1,0 +1,10 @@
+{
+  "jspdf": [
+    {
+      "id": "5RHE",
+      "name": "./node_modules/jspdf/dist/jspdf.min.js",
+      "file": "static/chunks/a417.6cabb768757e3b892d0a.js",
+      "publicPath": "static/chunks/a417.6cabb768757e3b892d0a.js"
+    }
+  ]
+}

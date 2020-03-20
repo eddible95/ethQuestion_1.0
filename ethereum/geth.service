@@ -1,0 +1,13 @@
+[Unit]
+Description=Ethereum Go Client
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/geth --datadir /home/VMadmin/Desktop/node1 --syncmode "full" --networkid 2402  --verbosity 3 --rpc --rpcport 8543 --rpcaddr "0.0.0.0" --rpccorsdomain "*" --rpcapi "admin,db,debug,eth,miner,net,miner,net,personal,ssh,txpool,web3,clique" --ipcdisable --allow-insecure-unlock --unlock "0xc7C36f06d39d9f6E1AE44ae1Dc0a74d6A450166B" --password /home/VMadmin/Desktop/password.txt --mine --miner.threads 4
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=geth
+Restart=always
+
+[Install]
+WantedBy=default.target

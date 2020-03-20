@@ -1,0 +1,37 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "multi private-next-pages/about.js": 0,
+      "multi private-next-pages/admin.js": 1,
+      "multi private-next-pages/feedback.js": 2,
+      "multi private-next-pages/home.js": 3,
+      "multi private-next-pages/login.js": 4,
+      "multi private-next-pages/newQuestion.js": 5,
+      "multi private-next-pages/register.js": 6,
+      "multi private-next-pages/showQuestion.js": 7,
+      "multi private-next-pages/userProfile.js": 8,
+      "multi next/dist/pages/_app": 9,
+      "multi next/dist/pages/_error": 10,
+      "multi next/dist/pages/_document": 11
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7,
+      "8": 8,
+      "9": 9,
+      "10": 10,
+      "11": 11
+    }
+  },
+  "chunks": {
+    "byName": {},
+    "bySource": {},
+    "usedIds": []
+  }
+}
