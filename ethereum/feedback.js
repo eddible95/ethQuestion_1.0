@@ -17,7 +17,7 @@ let instance;
 if (typeof web3 !== 'undefined') {
   instance = new web3.eth.Contract(
       JSON.parse(Feedback.interface),
-      "0x75E68E5fB3E5d11ddeeb3e9E580559A35447eC53"
+      "0x0F5F69473A921dbbc765149Fae1fbeFA7Bbb61D3"
   );
 }
 

@@ -18,7 +18,7 @@ let instance;
 if (typeof web3 !== 'undefined') {
   instance = new web3.eth.Contract(
       JSON.parse(QuestionFactory.interface),
-      "0x0eceF45E6AA052CB7d66b794F9d8d8b1917dc8d7"
+      "0xc82918Bd8970D2774343e239437B2A40E2ffDA23"
   );
 }
 
