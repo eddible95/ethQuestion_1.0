@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Card, Segment, Container, List, Transition, Popup, Modal,
          Header, Icon, Divider, Form, Input, Message } from "semantic-ui-react";
 import AccountIssueModal from '../components/AccountIssueModal';
+import TimeOutModal from '../components/TimeOutModal';
 import web3 from '../ethereum/web3'
 import Layout from '../components/Layout';
 import factory from '../ethereum/factory';
@@ -20,6 +21,7 @@ class userProfile extends Component {
       visible: false,
       login: false,
       loading: true,
+      timeout: false,
       accountType: null,
       account: null,
       token: null,
@@ -95,6 +97,9 @@ class userProfile extends Component {
           });
           Router.pushRoute('/home'); // Automatic redirect the user.
       } catch (err) {
+          if (err.message == "Returned error: authentication needed: password or unlock") {
+            this.setState({ timeout: true });
+          }
           this.setState({ errorMessage: err.message });
           this.setState({ error: true})
           this.setState({ toppingUp: false });
@@ -120,7 +125,11 @@ class userProfile extends Component {
       });
       Router.pushRoute('/home'); // Automatic redirect the user.
     } catch (err) {
-      this.setState({ errorMessage: err.message + " Insufficient Points"});
+      if (err.message == "Returned error: authentication needed: password or unlock") {
+        this.setState({ timeout: true });
+      } else {
+        this.setState({ errorMessage: err.message + " Insufficient Points"});
+      }
       this.setState({ error: true})
       this.setState({ exchanging: false });
     }
@@ -238,6 +247,7 @@ class userProfile extends Component {
             </Modal.Actions>
           </Modal>
           </Container>
+          <TimeOutModal timeout={this.state.timeout} />
         </Layout>
       );
     } else {

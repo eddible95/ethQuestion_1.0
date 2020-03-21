@@ -30,9 +30,6 @@ class AccountIssueModal extends Component {
             <p>
               (2) Currently not registered to access the platform. Please have your account registered.
             </p>
-            <p>
-              (3) Metamask not installed on your browser.
-            </p>
           </Modal.Content>
           <Modal.Actions>
             <Button color='green' inverted attached='bottom' onClick={() => {

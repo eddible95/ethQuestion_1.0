@@ -4,6 +4,7 @@ import { Container, Segment, Header, Divider, Button, Popup, Form, Input,
 import Layout from '../components/Layout';
 import LoadingModal from '../components/LoadingModal';
 import AccountIssueModal from '../components/AccountIssueModal';
+import TimeOutModal from '../components/TimeOutModal';
 import {Router} from '../routes';
 import { logging, checkRewardField } from '../utils/functions';
 import web3 from '../ethereum/web3';
@@ -25,6 +26,7 @@ class AdminPage extends Component {
       error: false,
       loading: false,
       loadingResource: true,
+      timeout: false,
       deployedQuestionsCount: null,
       deployedQuestions: [],
       ethWalletEmailAddressBinding: [],
@@ -188,6 +190,9 @@ class AdminPage extends Component {
       });
       Router.pushRoute('/admin'); // Automatic redirect the user.
     } catch (err) {
+      if (err.message == "Returned error: authentication needed: password or unlock") {
+        this.setState({ timeout: true });
+      }
       this.setState({ errorMessage: err.message });
       this.setState({ error: true})
     }
@@ -205,6 +210,9 @@ class AdminPage extends Component {
           gasPrice: '0'
       });
     } catch (err) {
+      if (err.message == "Returned error: authentication needed: password or unlock") {
+        this.setState({ timeout: true });
+      }
       this.setState({ errorMessage: err.message });
       this.setState({ error: true})
     }
@@ -231,6 +239,9 @@ class AdminPage extends Component {
           gasPrice: '0'
       });
     } catch (err) {
+      if (err.message == "Returned error: authentication needed: password or unlock") {
+        this.setState({ timeout: true });
+      }
       this.setState({ errorMessage: err.message });
       this.setState({ error: true})
     }
@@ -270,6 +281,9 @@ class AdminPage extends Component {
       });
       Router.pushRoute('/admin'); // Automatic redirect the user.
     } catch (err) {
+      if (err.message == "Returned error: authentication needed: password or unlock") {
+        this.setState({ timeout: true });
+      }
       this.setState({ errorMessage: err.message });
       this.setState({ error: true})
     }
@@ -289,6 +303,9 @@ class AdminPage extends Component {
       });
       Router.pushRoute('/admin'); // Automatic redirect the user.
     } catch (err) {
+      if (err.message == "Returned error: authentication needed: password or unlock") {
+        this.setState({ timeout: true });
+      }
       this.setState({ errorMessage: err.message });
       this.setState({ error: true})
     }
@@ -318,6 +335,9 @@ class AdminPage extends Component {
         });
         Router.pushRoute('/admin'); // Automatic redirect the user.
       } catch (err) {
+        if (err.message == "Returned error: authentication needed: password or unlock") {
+          this.setState({ timeout: true });
+        }
         this.setState({ errorMessage: err.message });
         this.setState({ error: true})
         this.setState({ loading: false})
@@ -344,6 +364,9 @@ class AdminPage extends Component {
       });
       Router.pushRoute('/admin'); // Automatic redirect the user.
     } catch (err) {
+      if (err.message == "Returned error: authentication needed: password or unlock") {
+        this.setState({ timeout: true });
+      }
       this.setState({ errorMessage: err.message });
       this.setState({ error: true})
       this.setState({ loading: false})
@@ -366,6 +389,9 @@ class AdminPage extends Component {
         });
         Router.pushRoute('/admin'); // Automatic redirect the user.
       } catch (err) {
+        if (err.message == "Returned error: authentication needed: password or unlock") {
+          this.setState({ timeout: true });
+        }
         this.setState({ errorMessage: err.message });
         this.setState({ error: true})
         this.setState({ loading: false})
@@ -602,6 +628,7 @@ class AdminPage extends Component {
                           content={"Please Confirm the MetaMask Transaction Request. This process might take awhile."}
                           loader={"Loading"}/>
             </Container>
+            <TimeOutModal timeout={this.state.timeout} />
         </Layout>
       );
     } else {

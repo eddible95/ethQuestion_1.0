@@ -3,6 +3,7 @@ import MobileDetect from 'mobile-detect';
 import { Container, Segment, Header, Divider, Responsive,
    Button, Icon, TextArea, Modal, Loader, Message, Form, Grid, Label, Progress } from "semantic-ui-react";
 import AccountIssueModal from '../components/AccountIssueModal';
+import TimeOutModal from '../components/TimeOutModal';
 import Layout from '../components/Layout';
 import web3 from '../ethereum/web3';
 import factory from '../ethereum/factory';
@@ -26,6 +27,7 @@ class FeedbackPage extends Component {
       errorMessage: "",
       login: false,
       resourceLoading: true,
+      timeout: false,
       accountType: null,
       statistics: []
     };
@@ -68,7 +70,7 @@ class FeedbackPage extends Component {
       // Ensures all fields are filled
       if (checkFieldEmpty(this.state.like) && checkFieldEmpty(this.state.usefulness) && checkFieldEmpty(this.state.easy)){
         try {
-            const account = this.state.account;
+            const account = this.props.account;
             let emailAddress = await credentials.methods.getBinding(account).call();
             let comments = "Comments provided by " + emailAddress + ": " + this.state.comments;
             await feedback.methods
@@ -79,6 +81,9 @@ class FeedbackPage extends Component {
             });
             Router.pushRoute('/home'); // Automatic redirect the user.
         } catch (err) {
+            if (err.message == "Returned error: authentication needed: password or unlock") {
+              this.setState({ timeout: true });
+            }
             this.setState({ errorMessage: err.message });
         }
         this.setState({ loading: false });
@@ -231,6 +236,7 @@ class FeedbackPage extends Component {
                 </Responsive>
             </Grid.Column>
           </Grid>
+          <TimeOutModal timeout={this.state.timeout} />
         </Layout>
       );
     } else {

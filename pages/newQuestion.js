@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button, Input, Message, Dropdown, Header,
   Icon, Segment, Container, TextArea, Divider, Label, Modal, Loader } from 'semantic-ui-react';
 import AccountIssueModal from '../components/AccountIssueModal';
+import TimeOutModal from '../components/TimeOutModal';
 import Layout from '../components/Layout';
 import factory from '../ethereum/factory';
 import Question from '../ethereum/question';
@@ -33,6 +34,7 @@ class NewQuestion extends Component {
           fileNames_array: [],
           login: false,
           resourceLoading: true,
+          timeout: false,
           accountType: null
       };
     }
@@ -111,6 +113,10 @@ class NewQuestion extends Component {
               });
               Router.pushRoute('/home'); // Automatic redirect the user.
           } catch (err) {
+              if (err.message == "Returned error: authentication needed: password or unlock") {
+                this.setState({ loading: false });
+                this.setState({ timeout: true });
+              }
               this.setState({ errorMessage: err.message + " Or check if you have sufficient EQT(s)"});
           }
           this.setState({ loading: false });
@@ -303,6 +309,7 @@ class NewQuestion extends Component {
                     </Modal>
                 </Form>
               </Container>
+              <TimeOutModal timeout={this.state.timeout} />
           </Layout>
         );
       } else {

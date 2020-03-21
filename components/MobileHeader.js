@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Menu, Segment, Container, Icon, Header, Grid, Input, Button, Sticky, Rail, Sidebar } from 'semantic-ui-react';
+import { Menu, Segment, Container, Icon, Header, Grid,
+   Input, Button, Sticky, Rail, Sidebar } from 'semantic-ui-react';
 import { Link, Router } from '../routes';
 
 class HeaderMobile extends Component {
@@ -125,6 +126,9 @@ class HeaderMobile extends Component {
                             onChange={this.handleChange}
                              />
                           </Menu.Item>
+                          <Button compact floated='right' inverted color='orange' onClick={()=>{Router.pushRoute('/new')}}>
+                            <Icon name='pencil alternate' circular size='small'/>Ask Question
+                          </Button>
                         </Menu>
                       </Grid.Row>
                       </Grid>

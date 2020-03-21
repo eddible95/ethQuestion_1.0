@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MobileDetect from 'mobile-detect';
 import _ from 'lodash';
-import { Button, Header, Table, Statistic, Rating, Grid, Loader, List,
+import { Button, Header, Table, Statistic, Rating, Grid, Loader, List, Popup,
    Divider, Container, Icon, Label, Progress, Segment, Modal, Responsive, Checkbox, Dropdown } from 'semantic-ui-react';
 import AccountIssueModal from '../components/AccountIssueModal';
 import { getWidthFactory } from '../utils/device';
@@ -490,6 +490,10 @@ class HomePage extends Component {
                   </Grid.Column>
                   <Grid.Column width={5}>
                     {this.renderFilterSettings()}
+                    <Popup
+                        trigger={
+                            <Button circular icon='cancel' onClick={ () => Router.pushRoute(`/home`) }/>}
+                        content={"Clear Filter"} />
                   </Grid.Column>
                   <Grid.Column width={6}>
                     {this.renderQuestionLimitSettings()}
@@ -523,6 +527,10 @@ class HomePage extends Component {
                 </Header>
                 {this.renderSortSettings()}
                 {this.renderFilterSettings()}
+                <Popup
+                    trigger={
+                        <Button circular icon='cancel' onClick={ () => Router.pushRoute(`/home`) }/>}
+                    content={"Clear Filter"} />
                 {this.renderQuestionLimitSettings()}
                 <Divider hidden/>
                 <List divided relaxed>

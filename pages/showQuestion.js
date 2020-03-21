@@ -5,6 +5,7 @@ import { Context, Text } from 'react-mathjax2';
 import { Table, Popup, Button, Container, Form, Header, Comment,
   Segment, Message, Divider, Icon, Label, Modal, Loader, Image, Grid } from 'semantic-ui-react';
 import AccountIssueModal from '../components/AccountIssueModal';
+import TimeOutModal from '../components/TimeOutModal';
 import ErrorModal from '../components/ErrorModal';
 import LoadingModal from '../components/LoadingModal';
 import web3 from '../ethereum/web3';
@@ -48,6 +49,7 @@ class QuestionRow extends Component {
       fileHashes_array: [],
       fileNames_array: [],
       login: false,
+      timeout: false,
       resourceLoading: true,
       accountType: null,
       balanceError: false,
@@ -147,6 +149,9 @@ class QuestionRow extends Component {
         }
       }
     } catch (err) {
+        if (err.message == "Returned error: authentication needed: password or unlock") {
+          this.setState({ timeout: true });
+        }
         this.setState({ errorMessage: err.message });
     }
     this.setState({ changeToVoting: false});
@@ -177,6 +182,9 @@ class QuestionRow extends Component {
         }
       }
     } catch (err) {
+      if (err.message == "Returned error: authentication needed: password or unlock") {
+        this.setState({ timeout: true });
+      }
       this.setState({ errorMessage: err.message });
     }
     this.setState({ changeToRewarded: false});
@@ -201,6 +209,9 @@ class QuestionRow extends Component {
         this.setState({ ownerError: true});
       }
     } catch (err) {
+      if (err.message == "Returned error: authentication needed: password or unlock") {
+        this.setState({ timeout: true });
+      }
       this.setState({ errorMessage: err.message });
     }
     this.setState({ fixError: false})
@@ -224,6 +235,10 @@ class QuestionRow extends Component {
         this.setState({ ownerError: true});
       }
     } catch (err) {
+      if (err.message == "Returned error: authentication needed: password or unlock") {
+        this.setState({ timeExtension: false });
+        this.setState({ timeout: true });
+      }
       this.setState({ errorMessage: err.message });
     }
     this.setState({ timeExtension: false})
@@ -251,6 +266,9 @@ class QuestionRow extends Component {
         this.setState({ ownerError: true});
       }
     } catch (err) {
+      if (err.message == "Returned error: authentication needed: password or unlock") {
+        this.setState({ timeout: true });
+      }
       this.setState({ errorMessage: err.message });
     }
     this.setState({ changeReward: false})
@@ -278,6 +296,9 @@ class QuestionRow extends Component {
             this.setState({ loading: false, errorMessage: "You cannot provide answer for your own question or already provided answer."})
           }
       } catch (err) {
+          if (err.message == "Returned error: authentication needed: password or unlock") {
+            this.setState({ timeout: true });
+          }
           this.setState({ errorMessage: err.message });
       }
     } else {
@@ -318,6 +339,9 @@ class QuestionRow extends Component {
         this.setState({ voteError: true});
       }
     } catch (err) {
+      if (err.message == "Returned error: authentication needed: password or unlock") {
+        this.setState({ timeout: true });
+      }
       this.setState({ errorMessage: err.message });
     }
     this.setState({ voting: false })
@@ -865,6 +889,7 @@ class QuestionRow extends Component {
                           title={'Fixing Balance Error'}
                           content={"Please Confirm the MetaMask Transaction Request to fix the balance error."}
                           loader={"Fixing Balance"}/>
+            <TimeOutModal timeout={this.state.timeout} />
           </Container>
         </Layout>
       );
