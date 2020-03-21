@@ -101,7 +101,7 @@ class AboutPage extends Component {
             <Divider hidden/>
 
             <Segment>
-              <Header as='h2' textAlign='center'>
+              <Header as='h2' raised textAlign='center'>
                 System Functionality
               </Header>
             </Segment>
@@ -135,7 +135,7 @@ class AboutPage extends Component {
               users who approved the answer with the highest approvals.
             </p>
             <Segment>
-              <Header as='h2' textAlign='center'>
+              <Header as='h2' raised textAlign='center'>
                 User Guide
               </Header>
             </Segment>
