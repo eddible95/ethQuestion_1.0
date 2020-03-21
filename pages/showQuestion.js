@@ -307,17 +307,24 @@ class QuestionRow extends Component {
     this.setState({ loading: false, answer:'' });
   };
 
-  approveAnswer = async(index) => {
+  approveAnswer = async(answerer) => {
     this.setState({ voting: true })
     const account = this.props.account;
     const question = await Question(this.state.questionAddress);
     const profile = await factory.methods.getProfile(account).call();
-    // Ensure that voter is not the answerer
+    const answerList = await question.methods.getAnswerList().call();
+    let index;
+    for (let i=0; i<answerList.length; i++) {
+      if (answerList[i][2] == answerer) {
+        index = i;
+      }
+    }
+    //Ensure that voter is not the answerer
     try {
-      if (account != await question.methods.getAnswerer(index).call()){
+      if (account != answerer){
         // Cannot vote twice
         if (! await question.methods.checkVoter(index, profile).call()) {
-          // No cost for voting after the voting phase
+          //No cost for voting after the voting phase
           if (await question.methods.state().call() != 2) {
             await EthQuestionToken.methods.transfer(await this.state.questionAddress, 10e3)
             .send({
@@ -329,7 +336,8 @@ class QuestionRow extends Component {
           await factory.methods
           .approveAnswer(this.state.questionAddress, index, logTransaction)
           .send({
-              from: accounts[0]
+              from: account,
+              gasPrice: '0'
           });
           Router.pushRoute(`/questions/${this.state.questionAddress}`)
         } else {
@@ -683,7 +691,7 @@ class QuestionRow extends Component {
                   <Comment.Action>
                     <Button style={{float: 'right', verticalAlign: 'middle'}}
                             icon='thumbs up'
-                            onClick={() => this.approveAnswer(index)}
+                            onClick={() => this.approveAnswer(answer[2])}
                             size='tiny'
                             content='Approve Answer'
                             color='green'
