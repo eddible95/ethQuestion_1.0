@@ -100,8 +100,8 @@ class AboutPage extends Component {
             <p style={{fontSize:'16px'}}><b>Approving An Answer:</b> 1 Point</p>
             <Divider hidden/>
 
-            <Segment>
-              <Header as='h2' raised textAlign='center'>
+            <Segment raised>
+              <Header as='h2'textAlign='center'>
                 System Functionality
               </Header>
             </Segment>
@@ -134,8 +134,8 @@ class AboutPage extends Component {
               will have their <b>1 EQT</b> returned. Additionally, EQT from users who approve other answers would be distributed among
               users who approved the answer with the highest approvals.
             </p>
-            <Segment>
-              <Header as='h2' raised textAlign='center'>
+            <Segment raised>
+              <Header as='h2' textAlign='center'>
                 User Guide
               </Header>
             </Segment>
