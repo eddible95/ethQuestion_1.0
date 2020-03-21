@@ -297,11 +297,12 @@ class HomePage extends Component {
         <Header as='h3' textAlign="center">
           <Icon name="chess king"/>Leaderboard
         </Header>
-        <Table basic='very' celled collapsing sortable>
+        <Table basic='very' celled sortable>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>Account</Table.HeaderCell>
+              <Table.HeaderCell textAlign='center'>Account</Table.HeaderCell>
               <Table.HeaderCell
+                textAlign='center'
                 sorted={column === 'points' ? direction : null}
                 onClick={this.handleSort('points')}>
               Point(s)
@@ -319,9 +320,9 @@ class HomePage extends Component {
   renderUserList() {
     return this.state.leaderboardData.map((item, index) => {
       return (
-        <Table.Row key={index}>
+        <Table.Row>
           <Table.Cell textAlign='center'>
-            <p style={{fontSize:"12px"}}>{item.account}</p>
+            <p style={{fontSize:"12px", textOverflow:'ellipsis'}}>{item.account.slice(0,10)+"..."}</p>
           </Table.Cell>
           <Table.Cell textAlign='center'>
             <p style={{fontSize:"12px"}}>{item.points}</p>

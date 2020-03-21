@@ -2138,9 +2138,11 @@ function (_Component) {
       }), "Leaderboard"), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"], {
         basic: "very",
         celled: true,
-        collapsing: true,
         sortable: true
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Header, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Row, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].HeaderCell, null, "Account"), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].HeaderCell, {
+      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Header, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Row, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].HeaderCell, {
+        textAlign: "center"
+      }, "Account"), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].HeaderCell, {
+        textAlign: "center",
         sorted: column === 'points' ? direction : null,
         onClick: this.handleSort('points')
       }, "Point(s)"))), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Body, null, this.renderUserList())));
@@ -2149,15 +2151,14 @@ function (_Component) {
     key: "renderUserList",
     value: function renderUserList() {
       return this.state.leaderboardData.map(function (item, index) {
-        return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Row, {
-          key: index
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Cell, {
+        return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Row, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Cell, {
           textAlign: "center"
         }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("p", {
           style: {
-            fontSize: "12px"
+            fontSize: "12px",
+            textOverflow: 'ellipsis'
           }
-        }, item.account)), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Cell, {
+        }, item.account.slice(0, 10) + "...")), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Cell, {
           textAlign: "center"
         }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("p", {
           style: {
