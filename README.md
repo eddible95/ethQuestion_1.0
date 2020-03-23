@@ -1,2 +1,4 @@
 # ethQuestion_1.0
 Blockchain-Based Question Answering System (QAS)
+
+This project aims to explore the potentials of the rising blockchain technology and Ethereum will be the choice of blockchain technology. The project deliverable will be a decentralised blockchain-based Question and Answering System (QAS) where students of Nanyang Technological University (NTU) can ask any questions related to their course of studies and have their questions answered by fellow peers. Answers provided will be approve by other students and the answerer that provide the answer with the greatest number of approvals will receive the reward in the form of cryptocurrency that is set by the student who asked the question. The proposed blockchain-based QAS aims to create an anonymous, peer-to-peer learning environment where students will be incentivised with cryptocurrency to encourage active participation.
