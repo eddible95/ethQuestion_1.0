@@ -1,10 +1,10 @@
 {
-  "./noop": [
+  "jspdf": [
     {
-      "id": "./node_modules/next/dist/client/noop.js",
-      "name": "./node_modules/next/dist/client/noop.js",
-      "file": "static/chunks/0.js",
-      "publicPath": "static/chunks/0.js"
+      "id": "5RHE",
+      "name": "./node_modules/jspdf/dist/jspdf.min.js",
+      "file": "static/chunks/a417.6cabb768757e3b892d0a.js",
+      "publicPath": "static/chunks/a417.6cabb768757e3b892d0a.js"
     }
   ]
 }

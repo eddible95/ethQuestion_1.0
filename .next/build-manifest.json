@@ -1,23 +1,60 @@
 {
-  "devFiles": [
-    "static/development/dll/dll_54eaf0e934a6ae477625.js"
-  ],
+  "devFiles": [],
   "pages": {
     "/_app": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-553be5aec2626bbc4e10.js",
+      "static/chunks/commons.4c778893605ae0b53bdf.js",
+      "static/runtime/main-245efdc3775373473860.js"
     ],
     "/_error": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-553be5aec2626bbc4e10.js",
+      "static/chunks/commons.4c778893605ae0b53bdf.js",
+      "static/runtime/main-245efdc3775373473860.js"
+    ],
+    "/about": [
+      "static/runtime/webpack-553be5aec2626bbc4e10.js",
+      "static/chunks/commons.4c778893605ae0b53bdf.js",
+      "static/runtime/main-245efdc3775373473860.js"
+    ],
+    "/admin": [
+      "static/runtime/webpack-553be5aec2626bbc4e10.js",
+      "static/chunks/commons.4c778893605ae0b53bdf.js",
+      "static/runtime/main-245efdc3775373473860.js"
+    ],
+    "/feedback": [
+      "static/runtime/webpack-553be5aec2626bbc4e10.js",
+      "static/chunks/commons.4c778893605ae0b53bdf.js",
+      "static/runtime/main-245efdc3775373473860.js"
     ],
     "/home": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-553be5aec2626bbc4e10.js",
+      "static/chunks/commons.4c778893605ae0b53bdf.js",
+      "static/runtime/main-245efdc3775373473860.js"
+    ],
+    "/login": [
+      "static/runtime/webpack-553be5aec2626bbc4e10.js",
+      "static/chunks/commons.4c778893605ae0b53bdf.js",
+      "static/runtime/main-245efdc3775373473860.js"
+    ],
+    "/newQuestion": [
+      "static/runtime/webpack-553be5aec2626bbc4e10.js",
+      "static/chunks/commons.4c778893605ae0b53bdf.js",
+      "static/runtime/main-245efdc3775373473860.js"
+    ],
+    "/register": [
+      "static/runtime/webpack-553be5aec2626bbc4e10.js",
+      "static/chunks/commons.4c778893605ae0b53bdf.js",
+      "static/runtime/main-245efdc3775373473860.js"
+    ],
+    "/showQuestion": [
+      "static/runtime/webpack-553be5aec2626bbc4e10.js",
+      "static/chunks/commons.4c778893605ae0b53bdf.js",
+      "static/runtime/main-245efdc3775373473860.js"
     ],
     "/userProfile": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-553be5aec2626bbc4e10.js",
+      "static/chunks/commons.4c778893605ae0b53bdf.js",
+      "static/runtime/main-245efdc3775373473860.js"
     ]
   }
 }
