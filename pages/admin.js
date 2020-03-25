@@ -41,7 +41,8 @@ class AdminPage extends Component {
       questionNumber: null,
       questionVisible: false,
       newTokenPrice: '',
-      topUpAmount: ''
+      topUpAmount: '',
+      tokenManagementVisible: false
     };
   }
 
@@ -410,6 +411,9 @@ class AdminPage extends Component {
   toggleQuestionTableVisibility = () =>
     this.setState((prevState) => ({ questionVisible: !prevState.questionVisible }))
 
+  toggleTokenManagementVisibility = () =>
+      this.setState((prevState) => ({ tokenManagementVisible: !prevState.tokenManagementVisible }))
+
   renderExport() {
     return <React.Fragment>
       <Segment raised textAlign='left'>
@@ -450,12 +454,21 @@ class AdminPage extends Component {
 
   renderEQTSettings() {
     return <React.Fragment>
-      <Segment raised textAlign='left'>
-        <Header as='h2' textAlign='center'>
-          EthQuestionTokens (EQT) Exchange Settings
-        </Header>
+      <Segment raised textAlign='center'>
+        <b style={{fontSize:"20px"}}>EthQuestionTokens (EQT) Exchange Settings</b>
+        <Popup
+          trigger={
+            <Button
+              icon={this.state.tokenManagementVisible ? "minus" : "plus"}
+              onClick={this.toggleTokenManagementVisibility}
+              floated="right"
+              size="mini"
+            />
+          }
+          content={"Click to expand/close"}
+          inverted/>
       </Segment>
-
+      <Transition visible={this.state.tokenManagementVisible} animation='scale' duration={500}>
       <Grid container={true}>
         <Grid.Row>
           <p style={{fontSize:'16px'}}>
@@ -519,6 +532,7 @@ class AdminPage extends Component {
           </Button>
         </Grid.Row>
       </Grid>
+      </Transition>
       <Divider hidden/>
     </React.Fragment>
   }
@@ -625,7 +639,7 @@ class AdminPage extends Component {
             <Divider hidden/>
             <LoadingModal trigger={this.state.loading}
                           title={'Performing Admin Actions'}
-                          content={"Please Confirm the MetaMask Transaction Request. This process might take awhile."}
+                          content={"Please wait patiently as the system performs the action selected. This process might take awhile."}
                           loader={"Loading"}/>
             </Container>
             <TimeOutModal timeout={this.state.timeout} />

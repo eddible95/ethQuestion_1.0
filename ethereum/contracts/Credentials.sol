@@ -50,13 +50,4 @@ contract Credentials {
   function emailNotBlackList(string _emailAddress) public view returns(bool) {
     return blacklist[_emailAddress];
   }
-
-  function deleteMapping(address _user, string _emailAddress) public {
-    delete walletEmailBinding[_user];
-    delete emailWalletBinding[_emailAddress];
-    delete emailPasswordMapping[_emailAddress];
-    delete registeredEthWallets[_user];
-    delete registeredEmailAddresses[_emailAddress];
-    delete blacklist[_emailAddress];
-  }
 }

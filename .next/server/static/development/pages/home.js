@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -146,7 +146,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["Modal"].Content, null, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["Loader"], {
         active: true,
         inline: "centered"
-      }, "Loading Deployed Questions"))), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["Modal"], {
+      }, "Fetching Data From Blockchain"))), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["Modal"], {
         open: !this.props.login && !this.props.loading,
         basic: true,
         size: "small"
@@ -312,6 +312,13 @@ function (_Component) {
         name: "Feedback",
         icon: "comment",
         active: this.props.page === 'Feedback',
+        color: "orange"
+      })), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_routes__WEBPACK_IMPORTED_MODULE_8__["Link"], {
+        route: "/leaderboard"
+      }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["Menu"].Item, {
+        name: "Leaderboard",
+        icon: "trophy",
+        active: this.props.page === 'Leaderboard',
         color: "orange"
       })), this.props.accountType == "Admin" ? react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_routes__WEBPACK_IMPORTED_MODULE_8__["Link"], {
         route: "/admin"
@@ -787,7 +794,13 @@ function (_Component) {
         className: "item"
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["Icon"], {
         name: "comment"
-      }), "Feedback")), this.props.accountType == "Admin" ? react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_routes__WEBPACK_IMPORTED_MODULE_8__["Link"], {
+      }), "Feedback")), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_routes__WEBPACK_IMPORTED_MODULE_8__["Link"], {
+        route: "/leaderboard"
+      }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("a", {
+        className: "item"
+      }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["Icon"], {
+        name: "trophy"
+      }), "Leaderboard")), this.props.accountType == "Admin" ? react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_routes__WEBPACK_IMPORTED_MODULE_8__["Link"], {
         route: "/admin"
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("a", {
         className: "item"
@@ -1089,7 +1102,7 @@ if (typeof window !== 'undefined' && window.ethereum) {
   resolve(web3);
 } else {
   // Metamask not available
-  var provider = new web3__WEBPACK_IMPORTED_MODULE_0___default.a.providers.HttpProvider('http://192.168.86.21:8543');
+  var provider = new web3__WEBPACK_IMPORTED_MODULE_0___default.a.providers.HttpProvider('http://192.168.86.248:8543');
   web3 = new web3__WEBPACK_IMPORTED_MODULE_0___default.a(provider);
   console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
 }
@@ -1150,17 +1163,6 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/keys */ "core
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/set-prototype-of */ "core-js/library/fn/object/set-prototype-of");
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime-corejs2/core-js/parse-int.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/core-js/parse-int.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! core-js/library/fn/parse-int */ "core-js/library/fn/parse-int");
 
 /***/ }),
 
@@ -1513,42 +1515,35 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "regenerator-run
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/parse-int */ "./node_modules/@babel/runtime-corejs2/core-js/parse-int.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.js");
-/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime-corejs2/helpers/esm/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var mobile_detect__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! mobile-detect */ "mobile-detect");
-/* harmony import */ var mobile_detect__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(mobile_detect__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! lodash */ "lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! semantic-ui-react */ "semantic-ui-react");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _components_AccountIssueModal__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/AccountIssueModal */ "./components/AccountIssueModal.js");
-/* harmony import */ var _utils_device__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../utils/device */ "./utils/device.js");
-/* harmony import */ var _ethereum_factory__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../ethereum/factory */ "./ethereum/factory.js");
-/* harmony import */ var _ethereum_credentials__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../ethereum/credentials */ "./ethereum/credentials.js");
-/* harmony import */ var _ethereum_question__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../ethereum/question */ "./ethereum/question.js");
-/* harmony import */ var _ethereum_profile__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../ethereum/profile */ "./ethereum/profile.js");
-/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../routes */ "./routes.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_routes__WEBPACK_IMPORTED_MODULE_22__);
-/* harmony import */ var _ethereum_web3__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../ethereum/web3 */ "./ethereum/web3.js");
-/* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../utils/functions */ "./utils/functions.js");
-/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! next-cookies */ "next-cookies");
-/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(next_cookies__WEBPACK_IMPORTED_MODULE_25__);
-
-
-
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.js");
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime-corejs2/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var mobile_detect__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! mobile-detect */ "mobile-detect");
+/* harmony import */ var mobile_detect__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(mobile_detect__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! semantic-ui-react */ "semantic-ui-react");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _components_AccountIssueModal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/AccountIssueModal */ "./components/AccountIssueModal.js");
+/* harmony import */ var _utils_device__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../utils/device */ "./utils/device.js");
+/* harmony import */ var _ethereum_factory__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../ethereum/factory */ "./ethereum/factory.js");
+/* harmony import */ var _ethereum_credentials__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../ethereum/credentials */ "./ethereum/credentials.js");
+/* harmony import */ var _ethereum_question__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../ethereum/question */ "./ethereum/question.js");
+/* harmony import */ var _ethereum_profile__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../ethereum/profile */ "./ethereum/profile.js");
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../routes */ "./routes.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_routes__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _ethereum_web3__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../ethereum/web3 */ "./ethereum/web3.js");
+/* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../utils/functions */ "./utils/functions.js");
+/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! next-cookies */ "next-cookies");
+/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(next_cookies__WEBPACK_IMPORTED_MODULE_22__);
 
 
 
@@ -1576,52 +1571,17 @@ __webpack_require__.r(__webpack_exports__);
 var HomePage =
 /*#__PURE__*/
 function (_Component) {
-  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_9__["default"])(HomePage, _Component);
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__["default"])(HomePage, _Component);
 
   function HomePage(props) {
     var _this;
 
-    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__["default"])(this, HomePage);
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, HomePage);
 
-    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__["default"])(HomePage).call(this, props));
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this), "handleSort", function (clickedColumn) {
-      return function () {
-        var _this$state = _this.state,
-            column = _this$state.column,
-            leaderboardData = _this$state.leaderboardData,
-            direction = _this$state.direction;
-
-        if (column !== clickedColumn) {
-          _this.setState({
-            column: clickedColumn,
-            leaderboardData: lodash__WEBPACK_IMPORTED_MODULE_13___default.a.sortBy(leaderboardData, [clickedColumn]),
-            direction: 'ascending'
-          });
-
-          return;
-        }
-
-        _this.setState({
-          leaderboardData: leaderboardData.reverse(),
-          direction: direction === 'ascending' ? 'descending' : 'ascending'
-        });
-      };
-    });
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_8__["default"])(_this), "handleChange", function (e, _ref) {
-      var value = _ref.value;
-      return _this.setState({
-        sortBy: value
-      });
-    });
-
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(HomePage).call(this, props));
     _this.state = {
       login: false,
       accountType: null,
-      column: null,
-      direction: null,
-      leaderboardData: [],
       tags: [],
       topTags: [],
       loading: true,
@@ -1636,13 +1596,13 @@ function (_Component) {
     return _this;
   }
 
-  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__["default"])(HomePage, [{
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(HomePage, [{
     key: "componentDidUpdate",
     value: function () {
-      var _componentDidUpdate = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__["default"])(
+      var _componentDidUpdate = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])(
       /*#__PURE__*/
-      _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee(prevProps) {
-        return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee$(_context) {
+      _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee(prevProps) {
+        return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -1667,15 +1627,15 @@ function (_Component) {
   }, {
     key: "componentDidMount",
     value: function () {
-      var _componentDidMount = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__["default"])(
+      var _componentDidMount = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])(
       /*#__PURE__*/
-      _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee2() {
-        var login, profileAddress, profile, accountType, ethWallet, accountPointMapping, i, points;
-        return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee2$(_context2) {
+      _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2() {
+        var login, profileAddress, profile, accountType;
+        return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                if (!(typeof _ethereum_web3__WEBPACK_IMPORTED_MODULE_23__["default"] === 'undefined')) {
+                if (!(typeof _ethereum_web3__WEBPACK_IMPORTED_MODULE_20__["default"] === 'undefined')) {
                   _context2.next = 3;
                   break;
                 }
@@ -1689,69 +1649,28 @@ function (_Component) {
                 login = false;
 
                 if (!this.props.isLogin) {
-                  _context2.next = 36;
+                  _context2.next = 18;
                   break;
                 }
 
                 login = true; // Get Account Type
 
                 _context2.next = 8;
-                return _ethereum_factory__WEBPACK_IMPORTED_MODULE_17__["default"].methods.getProfile(this.props.account).call();
+                return _ethereum_factory__WEBPACK_IMPORTED_MODULE_14__["default"].methods.getProfile(this.props.account).call();
 
               case 8:
                 profileAddress = _context2.sent;
-                profile = Object(_ethereum_profile__WEBPACK_IMPORTED_MODULE_20__["default"])(profileAddress);
+                profile = Object(_ethereum_profile__WEBPACK_IMPORTED_MODULE_17__["default"])(profileAddress);
                 _context2.next = 12;
                 return profile.methods.getAccountType().call();
 
               case 12:
                 accountType = _context2.sent;
-                accountType == 0 ? accountType = "Admin" : accountType = "User"; // Retireve an array of addresses of ethWallets registered
-
+                accountType == 0 ? accountType = "Admin" : accountType = "User";
                 _context2.next = 16;
-                return _ethereum_factory__WEBPACK_IMPORTED_MODULE_17__["default"].methods.getEthWallets().call();
-
-              case 16:
-                ethWallet = _context2.sent;
-                accountPointMapping = [];
-                i = 0;
-
-              case 19:
-                if (!(i < ethWallet.length)) {
-                  _context2.next = 31;
-                  break;
-                }
-
-                _context2.next = 22;
-                return _ethereum_factory__WEBPACK_IMPORTED_MODULE_17__["default"].methods.getProfile(ethWallet[i]).call();
-
-              case 22:
-                profileAddress = _context2.sent;
-                profile = Object(_ethereum_profile__WEBPACK_IMPORTED_MODULE_20__["default"])(profileAddress);
-                _context2.next = 26;
-                return profile.methods.getPoints().call();
-
-              case 26:
-                points = _context2.sent;
-                accountPointMapping.push({
-                  account: ethWallet[i],
-                  points: _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_1___default()(points)
-                });
-
-              case 28:
-                i++;
-                _context2.next = 19;
-                break;
-
-              case 31:
-                _context2.next = 33;
                 return this.fetchQuestionData();
 
-              case 33:
-                // Set the states required for the Leaderboard and ensure it is descending by default
-                this.setState({
-                  leaderboardData: lodash__WEBPACK_IMPORTED_MODULE_13___default.a.sortBy(accountPointMapping, ['points']).reverse()
-                });
+              case 16:
                 this.setState({
                   login: login
                 });
@@ -1759,12 +1678,12 @@ function (_Component) {
                   accountType: accountType
                 });
 
-              case 36:
+              case 18:
                 this.setState({
                   loading: false
                 });
 
-              case 37:
+              case 19:
               case "end":
                 return _context2.stop();
             }
@@ -1781,17 +1700,17 @@ function (_Component) {
   }, {
     key: "fetchQuestionData",
     value: function () {
-      var _fetchQuestionData = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__["default"])(
+      var _fetchQuestionData = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])(
       /*#__PURE__*/
-      _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee3() {
-        var deployedQuestions, deployedQuestionsCount, summaries, searchItem, i, question, summary, answerList, questionLimitChoice, choice, _i, tags, sortedTags, tagList, isMining, blockNumber;
+      _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee3() {
+        var deployedQuestions, deployedQuestionsCount, summaries, searchItem, i, question, summary, answerList, questionLimitChoice, choice, _i, tags, sortedTags, tagList, isMining, blockNumber, users;
 
-        return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return _ethereum_factory__WEBPACK_IMPORTED_MODULE_17__["default"].methods.getDeployedQuestions().call();
+                return _ethereum_factory__WEBPACK_IMPORTED_MODULE_14__["default"].methods.getDeployedQuestions().call();
 
               case 2:
                 deployedQuestions = _context3.sent;
@@ -1809,7 +1728,7 @@ function (_Component) {
 
                 searchItem = decodeURIComponent(this.props.queryValue);
                 _context3.next = 10;
-                return Object(_utils_functions__WEBPACK_IMPORTED_MODULE_24__["search"])(searchItem, deployedQuestions);
+                return Object(_utils_functions__WEBPACK_IMPORTED_MODULE_21__["search"])(searchItem, deployedQuestions);
 
               case 10:
                 deployedQuestions = _context3.sent;
@@ -1824,7 +1743,7 @@ function (_Component) {
                   break;
                 }
 
-                question = Object(_ethereum_question__WEBPACK_IMPORTED_MODULE_19__["default"])(deployedQuestions[i]);
+                question = Object(_ethereum_question__WEBPACK_IMPORTED_MODULE_16__["default"])(deployedQuestions[i]);
                 _context3.next = 17;
                 return question.methods.getSummary().call();
 
@@ -1890,18 +1809,24 @@ function (_Component) {
                   tags.push(tag[0]);
                 });
                 _context3.next = 43;
-                return _ethereum_web3__WEBPACK_IMPORTED_MODULE_23__["default"].eth.isMining();
+                return _ethereum_web3__WEBPACK_IMPORTED_MODULE_20__["default"].eth.isMining();
 
               case 43:
                 isMining = _context3.sent;
                 _context3.next = 46;
-                return _ethereum_web3__WEBPACK_IMPORTED_MODULE_23__["default"].eth.getBlockNumber();
+                return _ethereum_web3__WEBPACK_IMPORTED_MODULE_20__["default"].eth.getBlockNumber();
 
               case 46:
                 blockNumber = _context3.sent;
+                _context3.next = 49;
+                return _ethereum_factory__WEBPACK_IMPORTED_MODULE_14__["default"].methods.getEthWallets().call();
+
+              case 49:
+                users = _context3.sent;
                 this.setState({
                   isMining: isMining,
-                  blockNumber: blockNumber
+                  blockNumber: blockNumber,
+                  users: users.length
                 });
                 this.setState({
                   topTags: tags
@@ -1916,7 +1841,7 @@ function (_Component) {
                   questionLimitChoice: questionLimitChoice
                 });
 
-              case 52:
+              case 55:
               case "end":
                 return _context3.stop();
             }
@@ -1929,38 +1854,37 @@ function (_Component) {
       }
 
       return fetchQuestionData;
-    }() // Function to handle the sorting of leaderboard
-
+    }()
   }, {
     key: "renderQuestionHeader",
     value: function renderQuestionHeader() {
-      return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Row, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].HeaderCell, {
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Table"].Row, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Table"].HeaderCell, {
         textAlign: "center",
         width: 2
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
         style: {
           fontSize: 15,
           color: '#6A737C'
         }
-      }, "Current Phase")), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].HeaderCell, {
+      }, "Current Phase")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Table"].HeaderCell, {
         textAlign: "center",
         width: 2
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
         style: {
           fontSize: 15,
           color: '#6A737C'
         }
-      }, "Answers Submitted")), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].HeaderCell, {
+      }, "Answers Submitted")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Table"].HeaderCell, {
         textAlign: "center",
         width: 2
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
         style: {
           fontSize: 15,
           color: '#6A737C'
         }
-      }, "Reward")), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].HeaderCell, {
+      }, "Reward")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Table"].HeaderCell, {
         textAlign: "center"
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
         style: {
           fontSize: 15,
           color: '#6A737C'
@@ -1974,100 +1898,100 @@ function (_Component) {
       var _this2 = this;
 
       var summaries = this.state.summaries;
-      summaries = Object(_utils_functions__WEBPACK_IMPORTED_MODULE_24__["sortingQuestions"])(summaries, this.state.sortBy);
+      summaries = Object(_utils_functions__WEBPACK_IMPORTED_MODULE_21__["sortingQuestions"])(summaries, this.state.sortBy);
       return summaries.map(function (summary, index) {
         var questionState = summary[4];
         var tagList = summary[8];
-        return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Row, {
+        return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Table"].Row, {
           key: index
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Cell, {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Table"].Cell, {
           textAlign: "center",
           width: 2
-        }, questionState == 0 ? react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"], {
+        }, questionState == 0 ? react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"], {
           size: "mini",
           color: "red"
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
           style: {
             fontSize: 15,
             color: 'red'
           }
-        }, " Answering")), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Label, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+        }, " Answering")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Label, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
           style: {
             fontSize: 15,
             color: '#6A737C'
           }
-        }, "Phase"))) : questionState == 1 ? react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"], {
+        }, "Phase"))) : questionState == 1 ? react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"], {
           size: "mini",
           color: "red"
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
           style: {
             fontSize: 15,
             color: '#C9C633'
           }
-        }, " Voting")), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Label, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+        }, " Voting")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Label, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
           style: {
             fontSize: 15,
             color: '#6A737C'
           }
-        }, "Phase"))) : react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"], {
+        }, "Phase"))) : react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"], {
           size: "mini",
           color: "red"
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
           style: {
             fontSize: 15,
             color: '#10EE44'
           }
-        }, " Rewarded")), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Label, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+        }, " Rewarded")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Label, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
           style: {
             fontSize: 15,
             color: '#6A737C'
           }
-        }, "Phase")))), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Cell, {
+        }, "Phase")))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Table"].Cell, {
           textAlign: "center",
           width: 2
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"], {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"], {
           size: "mini",
           color: "red"
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
           style: {
             fontSize: 15,
             color: '#6A737C'
           }
-        }, summary[10])), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Label, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+        }, summary[10])), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Label, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
           style: {
             fontSize: 15,
             color: '#6A737C'
           }
-        }, "answer(s)")))), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Cell, {
+        }, "answer(s)")))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Table"].Cell, {
           textAlign: "center",
           width: 2
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"], {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"], {
           size: "mini",
           color: "red"
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
           style: {
             fontSize: 15,
             color: '#6A737C'
           }
-        }, summary[2] * 1e-4)), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Label, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+        }, summary[2] * 1e-4)), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Label, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
           style: {
             fontSize: 15,
             color: '#6A737C'
           }
-        }, "EQT(s)")))), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Cell, {
+        }, "EQT(s)")))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Table"].Cell, {
           textAlign: "left"
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"].Row, {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Grid"].Row, {
           textAlign: "left"
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
           style: {
             fontSize: 18,
             color: '#6A737C',
             cursor: 'pointer'
           },
           onClick: function onClick() {
-            return _routes__WEBPACK_IMPORTED_MODULE_22__["Router"].pushRoute("/questions/".concat(summary[11]));
+            return _routes__WEBPACK_IMPORTED_MODULE_19__["Router"].pushRoute("/questions/".concat(summary[11]));
           }
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("a", null, summary[0]))), _this2.renderTag(tagList, "mini")));
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("a", null, summary[0]))), _this2.renderTag(tagList, "mini")));
       });
     }
   }, {
@@ -2075,32 +1999,34 @@ function (_Component) {
     value: function renderMobileQuestionList() {
       var _this3 = this;
 
-      return this.state.summaries.map(function (summary, index) {
+      var summaries = this.state.summaries;
+      summaries = Object(_utils_functions__WEBPACK_IMPORTED_MODULE_21__["sortingQuestions"])(summaries, this.state.sortBy);
+      return summaries.map(function (summary, index) {
         var tags = summary[8];
         var questionState = summary[4];
         var tagList = summary[8];
-        return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["List"].Item, {
+        return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["List"].Item, {
           key: index
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["List"].Icon, {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["List"].Icon, {
           name: "question circle",
           size: "large",
           verticalAlign: "middle"
-        }), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["List"].Content, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["List"].Header, {
+        }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["List"].Content, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["List"].Header, {
           as: "a",
           onClick: function onClick() {
-            return _routes__WEBPACK_IMPORTED_MODULE_22__["Router"].pushRoute("/questions/".concat(summary[11]));
+            return _routes__WEBPACK_IMPORTED_MODULE_19__["Router"].pushRoute("/questions/".concat(summary[11]));
           }
-        }, summary[0]), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"], null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"].Column, {
+        }, summary[0]), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Grid"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Grid"].Column, {
           width: 10
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["List"].Description, null, "Number of Answer(s): " + summary[10]), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["List"].Description, null, "Reward: " + summary[2] * 1e-4 + " EQT(s)"), _this3.renderTag(tags, "mini")), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"].Column, {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["List"].Description, null, "Number of Answer(s): " + summary[10]), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["List"].Description, null, "Reward: " + summary[2] * 1e-4 + " EQT(s)"), _this3.renderTag(tags, "mini")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Grid"].Column, {
           width: 4
-        }, questionState == 0 ? react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["List"].Description, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("b", null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("font", {
+        }, questionState == 0 ? react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["List"].Description, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("b", null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("font", {
           color: "red"
-        }, "ANSWERING PHASE"))) : questionState == 1 ? react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["List"].Description, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("b", null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("font", {
+        }, "ANSWERING PHASE"))) : questionState == 1 ? react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["List"].Description, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("b", null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("font", {
           color: "#C9C633"
-        }, "VOTING PHASE"))) : react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["List"].Description, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("b", null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("font", {
+        }, "VOTING PHASE"))) : react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["List"].Description, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("b", null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("font", {
           color: "#10EE44"
-        }, "REWARDED PHASE")))))), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Divider"], {
+        }, "REWARDED PHASE")))))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Divider"], {
           hidden: true
         }));
       });
@@ -2111,10 +2037,10 @@ function (_Component) {
     value: function renderTag(tagList, tagSize) {
       var tagColours = ["red", "olive", "blue", "teal", "green"];
       return tagList.map(function (tag, index) {
-        return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Label"], {
+        return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Label"], {
           as: "a",
           onClick: function onClick() {
-            return _routes__WEBPACK_IMPORTED_MODULE_22__["Router"].pushRoute("/".concat('search/' + encodeURIComponent(tag)));
+            return _routes__WEBPACK_IMPORTED_MODULE_19__["Router"].pushRoute("/".concat('search/' + encodeURIComponent(tag)));
           },
           tag: true,
           size: tagSize,
@@ -2124,144 +2050,126 @@ function (_Component) {
       });
     }
   }, {
-    key: "renderLeaderBoard",
-    value: function renderLeaderBoard() {
-      var _this$state2 = this.state,
-          column = _this$state2.column,
-          data = _this$state2.data,
-          direction = _this$state2.direction;
-      return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Segment"], null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Header"], {
-        as: "h3",
-        textAlign: "center"
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Icon"], {
-        name: "chess king"
-      }), "Leaderboard"), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"], {
-        basic: "very",
-        celled: true,
-        sortable: true
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Header, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Row, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].HeaderCell, {
-        textAlign: "center"
-      }, "Account"), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].HeaderCell, {
-        textAlign: "center",
-        sorted: column === 'points' ? direction : null,
-        onClick: this.handleSort('points')
-      }, "Point(s)"))), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Body, null, this.renderUserList())));
-    }
-  }, {
-    key: "renderUserList",
-    value: function renderUserList() {
-      return this.state.leaderboardData.map(function (item, index) {
-        return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Row, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Cell, {
-          textAlign: "center"
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("p", {
-          style: {
-            fontSize: "12px",
-            textOverflow: 'ellipsis'
-          }
-        }, item.account.slice(0, 10) + "...")), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Cell, {
-          textAlign: "center"
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("p", {
-          style: {
-            fontSize: "12px"
-          }
-        }, item.points)));
-      });
-    }
-  }, {
     key: "renderTopTags",
     value: function renderTopTags() {
-      return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Segment"], null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Header"], {
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Segment"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Header"], {
         as: "h3",
         textAlign: "center"
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Icon"], {
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Icon"], {
         name: "tags"
       }), "Top 10 Tags"), this.renderTag(this.state.topTags, "medium"));
     }
   }, {
-    key: "renderQuestionStatistics",
-    value: function renderQuestionStatistics() {
-      return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Segment"], null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Group, {
-        horizontal: true,
-        color: "red"
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"], null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Value, null, this.state.deployedQuestionsCount), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Label, null, "Questions Asked"))), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Group, {
-        horizontal: true,
-        color: "yellow"
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"], null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Value, null, this.state.leaderboardData.length), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Label, null, "Active Users"))));
-    }
-  }, {
-    key: "renderBlockChainStatistics",
-    value: function renderBlockChainStatistics() {
-      return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Segment"], null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Header"], {
+    key: "renderAbout",
+    value: function renderAbout() {
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Segment"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Header"], {
         as: "h3",
         textAlign: "center"
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Icon"], {
-        name: "ethereum"
-      }), "Block-Chain Status"), this.state.isMining ? react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
-        style: {
-          fontSize: 18,
-          color: 'green'
-        }
-      }, "Currently Mining")) : react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", {
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Icon"], {
+        name: "question"
+      }), "What Are Question Phases"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
         style: {
           fontSize: 18,
           color: 'red'
         }
-      }, "Currently Not Mining")), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Group, {
+      }, "ANSWERING"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("p", {
+        style: {
+          fontSize: 15
+        }
+      }, "You can submit answers but answers will not be shown"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
+        style: {
+          fontSize: 18,
+          color: '#C9C633'
+        }
+      }, "VOTING"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("p", {
+        style: {
+          fontSize: 15
+        }
+      }, "You can only approve answers submitted"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
+        style: {
+          fontSize: 18,
+          color: '#10EE44'
+        }
+      }, "REWARDED"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("p", {
+        style: {
+          fontSize: 15
+        }
+      }, "Someone has already earned the reward for the question"));
+    }
+  }, {
+    key: "renderQuestionStatistics",
+    value: function renderQuestionStatistics() {
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Segment"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Group, {
+        horizontal: true,
+        color: "red"
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Value, null, this.state.deployedQuestionsCount), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Label, null, "Questions Asked"))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Group, {
+        horizontal: true,
+        color: "yellow"
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Value, null, this.state.users), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Label, null, "Active Users"))));
+    }
+  }, {
+    key: "renderBlockChainStatistics",
+    value: function renderBlockChainStatistics() {
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Segment"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Header"], {
+        as: "h3",
+        textAlign: "center"
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Icon"], {
+        name: "ethereum"
+      }), "Block-Chain Status"), this.state.isMining ? react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
+        style: {
+          fontSize: 18,
+          color: 'green'
+        }
+      }, "Currently Mining")) : react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Value, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
+        style: {
+          fontSize: 18,
+          color: 'red'
+        }
+      }, "Currently Not Mining")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Group, {
         horizontal: true,
         color: "green"
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"], null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Value, null, this.state.blockNumber), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Statistic"].Label, null, "Blocks Mined"))), "*When blockchain is not mining, do not create any transaction");
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Value, null, this.state.blockNumber), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Statistic"].Label, null, "Blocks Mined"))), "*When blockchain is not mining, do not create any transaction");
     }
   }, {
     key: "renderSortSettings",
     value: function renderSortSettings() {
-      return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Icon"], {
-        name: "sort"
-      }), "Sort Questions By: ", ' ', react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Dropdown"], {
-        inline: true,
-        options: [{
-          key: 'Ascending Phase',
-          text: 'Ascending Phase',
-          value: 0
-        }, {
-          key: 'Descending Phase',
-          text: 'Descending Phase',
-          value: 1
-        }, {
-          key: 'Ascending Answers',
-          text: 'Ascending Answers',
-          value: 2
-        }, {
-          key: 'Descending Answers',
-          text: 'Descending Answers',
-          value: 3
-        }, {
-          key: 'Ascending Rewards',
-          text: 'Ascending Rewards',
-          value: 4
-        }, {
-          key: 'Descending Rewards',
-          text: 'Descending Rewards',
-          value: 5
-        }],
-        onChange: this.handleChange
-      }));
+      var _this4 = this;
+
+      var options = ['Ascending Phase', 'Descending Phase', 'Ascending Answers', 'Descending Answers', 'Ascending Rewards', 'Descending Rewards'];
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"], {
+        text: "Sorting Questions",
+        multiple: true
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"].Menu, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"].Header, {
+        icon: "filter",
+        content: "Sorting Options"
+      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"].Menu, {
+        scrolling: true
+      }, options.map(function (tag, index) {
+        return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"].Item, {
+          key: index,
+          text: tag,
+          onClick: function onClick() {
+            return _this4.setState({
+              sortBy: index
+            });
+          }
+        });
+      })))));
     }
   }, {
     key: "renderFilterSettings",
     value: function renderFilterSettings() {
       var tagColours = ["red", "olive", "blue", "teal", "green"];
-      return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Icon"], {
-        name: "filter"
-      }), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Dropdown"], {
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"], {
         text: "Filter Questions",
         multiple: true
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Dropdown"].Menu, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Dropdown"].Header, {
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"].Menu, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"].Header, {
         icon: "tags",
         content: "Tag Label"
-      }), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Dropdown"].Menu, {
+      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"].Menu, {
         scrolling: true
       }, this.state.tags.map(function (tag, index) {
-        return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Dropdown"].Item, {
+        return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"].Item, {
           key: index,
           text: tag,
           label: {
@@ -2270,7 +2178,7 @@ function (_Component) {
             circular: true
           },
           onClick: function onClick() {
-            return _routes__WEBPACK_IMPORTED_MODULE_22__["Router"].pushRoute("/".concat('search/' + encodeURIComponent(tag)));
+            return _routes__WEBPACK_IMPORTED_MODULE_19__["Router"].pushRoute("/".concat('search/' + encodeURIComponent(tag)));
           }
         });
       })))));
@@ -2278,36 +2186,36 @@ function (_Component) {
   }, {
     key: "renderQuestionLimitSettings",
     value: function renderQuestionLimitSettings() {
-      var _this4 = this;
+      var _this5 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Dropdown"], {
-        text: "Questions To Show",
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"], {
+        text: "Viewing Limit",
         multiple: true
-      }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Dropdown"].Menu, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Dropdown"].Header, {
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"].Menu, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"].Header, {
         icon: "list",
         content: "Question Limit"
-      }), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Dropdown"].Menu, {
+      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"].Menu, {
         scrolling: true
       }, this.state.questionLimitChoice.map(function (choice, index) {
-        return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Dropdown"].Item, {
+        return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Dropdown"].Item, {
           key: index,
           text: choice,
           onClick:
           /*#__PURE__*/
-          Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__["default"])(
+          Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])(
           /*#__PURE__*/
-          _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee4() {
-            return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee4$(_context4) {
+          _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee4() {
+            return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee4$(_context4) {
               while (1) {
                 switch (_context4.prev = _context4.next) {
                   case 0:
                     _context4.next = 2;
-                    return _this4.setState({
+                    return _this5.setState({
                       questionLimit: choice
                     });
 
                   case 2:
-                    _this4.fetchQuestionData();
+                    _this5.fetchQuestionData();
 
                   case 3:
                   case "end":
@@ -2322,84 +2230,80 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this6 = this;
+
       if (this.state.login) {
-        return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_21__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_18__["default"], {
           accountType: this.state.accountType,
           page: "Home"
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Responsive"], {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Responsive"], {
           fireOnMount: true,
-          getWidth: Object(_utils_device__WEBPACK_IMPORTED_MODULE_16__["getWidthFactory"])(this.props.isMobileFromSSR),
-          minWidth: semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Responsive"].onlyTablet.minWidth
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Divider"], {
+          getWidth: Object(_utils_device__WEBPACK_IMPORTED_MODULE_13__["getWidthFactory"])(this.props.isMobileFromSSR),
+          minWidth: semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Responsive"].onlyTablet.minWidth
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Divider"], {
           hidden: true
-        }), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"], {
+        }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Grid"], {
           centered: true
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"].Column, {
-          width: 4
-        }, this.renderLeaderBoard()), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"].Column, {
-          width: 8
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Header"], {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Grid"].Column, {
+          width: 10
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Header"], {
           as: "h2",
           textAlign: "center"
-        }, "Questions Posted"), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"], null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"].Column, {
-          width: 5
-        }, this.renderSortSettings()), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"].Column, {
-          width: 5
-        }, this.renderFilterSettings(), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Popup"], {
-          trigger: react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Button"], {
-            circular: true,
-            icon: "cancel",
-            onClick: function onClick() {
-              return _routes__WEBPACK_IMPORTED_MODULE_22__["Router"].pushRoute("/home");
-            }
-          }),
-          content: "Clear Filter"
-        })), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"].Column, {
-          width: 6
-        }, this.renderQuestionLimitSettings())), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"], null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Header, null, this.renderQuestionHeader()), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Table"].Body, null, this.renderQuestionList())), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Divider"], {
+        }, "Questions Asked"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Segment"], {
+          textAlign: "center"
+        }, this.renderSortSettings(), this.renderFilterSettings(), this.renderQuestionLimitSettings(), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Button"], {
+          onClick: function onClick() {
+            _this6.setState({
+              sortBy: ''
+            });
+
+            _routes__WEBPACK_IMPORTED_MODULE_19__["Router"].pushRoute("/home");
+          }
+        }, "Clear Fliter/Sort")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Table"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Table"].Header, null, this.renderQuestionHeader()), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Table"].Body, null, this.renderQuestionList())), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Divider"], {
           hidden: true
-        }), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("div", {
+        }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
           style: {
             marginTop: 20
           }
-        }, "Found ", this.state.summaries.length, " Item(s).")), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"].Column, {
+        }, "Found ", this.state.summaries.length, " Item(s).")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Grid"].Column, {
           width: 3
-        }, this.renderQuestionStatistics(), this.renderTopTags(), this.renderBlockChainStatistics()))), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Responsive"], {
+        }, this.renderAbout(), this.renderQuestionStatistics(), this.renderTopTags(), this.renderBlockChainStatistics()))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Responsive"], {
           fireOnMount: true,
-          getWidth: Object(_utils_device__WEBPACK_IMPORTED_MODULE_16__["getWidthFactory"])(this.props.isMobileFromSSR),
-          maxWidth: semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Responsive"].onlyMobile.maxWidth
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Divider"], {
+          getWidth: Object(_utils_device__WEBPACK_IMPORTED_MODULE_13__["getWidthFactory"])(this.props.isMobileFromSSR),
+          maxWidth: semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Responsive"].onlyMobile.maxWidth
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Divider"], {
           hidden: true
-        }), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"], {
+        }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Grid"], {
           centered: true
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Grid"].Column, null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Header"], {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Grid"].Column, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Header"], {
           as: "h2",
           textAlign: "center"
-        }, "Questions Posted"), this.renderSortSettings(), this.renderFilterSettings(), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Popup"], {
-          trigger: react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Button"], {
-            circular: true,
-            icon: "cancel",
-            onClick: function onClick() {
-              return _routes__WEBPACK_IMPORTED_MODULE_22__["Router"].pushRoute("/home");
-            }
-          }),
-          content: "Clear Filter"
-        }), this.renderQuestionLimitSettings(), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Divider"], {
+        }, "Questions Asked"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Segment"], {
+          textAlign: "center"
+        }, this.renderSortSettings(), this.renderFilterSettings(), this.renderQuestionLimitSettings()), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Button"], {
+          onClick: function onClick() {
+            _this6.setState({
+              sortBy: ''
+            });
+
+            _routes__WEBPACK_IMPORTED_MODULE_19__["Router"].pushRoute("/home");
+          }
+        }, "Clear Fliter/Sort"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Divider"], {
           hidden: true
-        }), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["List"], {
+        }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["List"], {
           divided: true,
           relaxed: true
-        }, this.renderMobileQuestionList()), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_14__["Divider"], {
+        }, this.renderMobileQuestionList()), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["Divider"], {
           hidden: true
-        }), react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("div", {
+        }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
           style: {
             marginTop: 20
           }
         }, "Found ", this.state.summaries.length, " Item(s).")))));
       } else {
-        return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_21__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_18__["default"], {
           accountType: this.state.accountType
-        }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(_components_AccountIssueModal__WEBPACK_IMPORTED_MODULE_15__["default"], {
+        }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_AccountIssueModal__WEBPACK_IMPORTED_MODULE_12__["default"], {
           loading: this.state.loading,
           login: this.state.login
         }));
@@ -2408,11 +2312,11 @@ function (_Component) {
   }], [{
     key: "getInitialProps",
     value: function () {
-      var _getInitialProps = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__["default"])(
+      var _getInitialProps = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])(
       /*#__PURE__*/
-      _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee5(props) {
+      _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee5(props) {
         var isMobileFromSSR, queryValue, device, md;
-        return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee5$(_context5) {
+        return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -2421,15 +2325,15 @@ function (_Component) {
 
                 if (props.req) {
                   device = props.req.headers["user-agent"];
-                  md = new mobile_detect__WEBPACK_IMPORTED_MODULE_12___default.a(device);
+                  md = new mobile_detect__WEBPACK_IMPORTED_MODULE_9___default.a(device);
                   isMobileFromSSR = !!md.mobile();
                 }
 
                 return _context5.abrupt("return", {
                   isMobileFromSSR: isMobileFromSSR,
                   queryValue: queryValue,
-                  isLogin: next_cookies__WEBPACK_IMPORTED_MODULE_25___default()(props).login || '',
-                  account: next_cookies__WEBPACK_IMPORTED_MODULE_25___default()(props).wallet || ''
+                  isLogin: next_cookies__WEBPACK_IMPORTED_MODULE_22___default()(props).login || '',
+                  account: next_cookies__WEBPACK_IMPORTED_MODULE_22___default()(props).wallet || ''
                 });
 
               case 4:
@@ -2449,7 +2353,7 @@ function (_Component) {
   }]);
 
   return HomePage;
-}(react__WEBPACK_IMPORTED_MODULE_11__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_8__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (HomePage);
 
@@ -2470,7 +2374,7 @@ var routes = __webpack_require__(/*! next-routes */ "next-routes")(); // Define 
 // we want to display
 
 
-routes.add('/', '/login').add('/home', 'home').add('/about', '/about').add('/userProfile/:value', '/userProfile').add('/feedback', '/feedback').add('/admin', '/admin').add('/new', '/newQuestion').add('/questions/:value', '/showQuestion').add('/search/:value', '/home').add('/register', '/register');
+routes.add('/', '/login').add('/home', 'home').add('/about', '/about').add('/userProfile/:value', '/userProfile').add('/feedback', '/feedback').add('/admin', '/admin').add('/new', '/newQuestion').add('/questions/:value', '/showQuestion').add('/search/:value', '/home').add('/leaderboard', '/leaderboard').add('/register', '/register');
 module.exports = routes;
 
 /***/ }),
@@ -2715,7 +2619,7 @@ var sortingAnswers = function sortingAnswers(answers, sorted) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*****************************!*\
   !*** multi ./pages/home.js ***!
   \*****************************/
@@ -2779,17 +2683,6 @@ module.exports = require("core-js/library/fn/object/keys");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/object/set-prototype-of");
-
-/***/ }),
-
-/***/ "core-js/library/fn/parse-int":
-/*!***********************************************!*\
-  !*** external "core-js/library/fn/parse-int" ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("core-js/library/fn/parse-int");
 
 /***/ }),
 

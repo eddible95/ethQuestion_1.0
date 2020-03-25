@@ -21,9 +21,6 @@ class HomePage extends Component {
     this.state = {
       login: false,
       accountType: null,
-      column: null,
-      direction: null,
-      leaderboardData: [],
       tags: [],
       topTags: [],
       loading: true,
@@ -67,23 +64,7 @@ class HomePage extends Component {
       let profile = Profile(profileAddress);
       let accountType = await profile.methods.getAccountType().call();
       accountType == 0 ? accountType = "Admin" : accountType = "User"
-
-      // Retireve an array of addresses of ethWallets registered
-      let ethWallet = await factory.methods.getEthWallets().call();
-      let accountPointMapping = [];
-
-      for (let i=0; i<ethWallet.length; i++) {
-        profileAddress = await factory.methods.getProfile(ethWallet[i]).call();
-        profile = Profile(profileAddress);
-        let points = await profile.methods.getPoints().call();
-        accountPointMapping.push({
-          account: ethWallet[i],
-          points: parseInt(points)
-        });
-      }
       await this.fetchQuestionData();
-      // Set the states required for the Leaderboard and ensure it is descending by default
-      this.setState( { leaderboardData: _.sortBy(accountPointMapping, ['points']).reverse() });
       this.setState( { login: login });
       this.setState( { accountType: accountType });
     }
@@ -118,7 +99,6 @@ class HomePage extends Component {
       }
     }
     summaries = summaries.reverse()
-
     // Displays questions in interval of 30
     let questionLimitChoice = [30]
     let choice = Math.floor(summaries.length/30)
@@ -160,31 +140,13 @@ class HomePage extends Component {
     })
     let isMining = await web3.eth.isMining();
     let blockNumber = await web3.eth.getBlockNumber();
-    this.setState({ isMining: isMining, blockNumber: blockNumber });
+    let users = await factory.methods.getEthWallets().call();
+    this.setState({ isMining: isMining, blockNumber: blockNumber, users: users.length });
     this.setState({ topTags: tags });
     this.setState({ tags: tagList });
     this.setState({ summaries: summaries });
     this.setState({ questionLimitChoice: questionLimitChoice });
   }
-
-  // Function to handle the sorting of leaderboard
-  handleSort = (clickedColumn) => () => {
-    const { column, leaderboardData, direction } = this.state
-    if (column !== clickedColumn) {
-      this.setState({
-        column: clickedColumn,
-        leaderboardData: _.sortBy(leaderboardData, [clickedColumn]),
-        direction: 'ascending',
-      })
-      return
-    }
-    this.setState({
-      leaderboardData: leaderboardData.reverse(),
-      direction: direction === 'ascending' ? 'descending' : 'ascending',
-    })
-  }
-
-  handleChange = (e, { value }) => this.setState({ sortBy : value });
 
   renderQuestionHeader() {
     return(
@@ -251,7 +213,9 @@ class HomePage extends Component {
   }
 
   renderMobileQuestionList() {
-    return this.state.summaries.map((summary, index) => {
+    let summaries = this.state.summaries
+    summaries = sortingQuestions(summaries, this.state.sortBy);
+    return summaries.map((summary, index) => {
       const tags = summary[8];
       const questionState = summary[4];
       const tagList = summary[8];
@@ -290,48 +254,6 @@ class HomePage extends Component {
     });
   }
 
-  renderLeaderBoard() {
-    const { column, data, direction } = this.state
-    return (
-      <Segment>
-        <Header as='h3' textAlign="center">
-          <Icon name="chess king"/>Leaderboard
-        </Header>
-        <Table basic='very' celled sortable>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell textAlign='center'>Account</Table.HeaderCell>
-              <Table.HeaderCell
-                textAlign='center'
-                sorted={column === 'points' ? direction : null}
-                onClick={this.handleSort('points')}>
-              Point(s)
-              </Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {this.renderUserList()}
-          </Table.Body>
-        </Table>
-      </Segment>
-    );
-  }
-
-  renderUserList() {
-    return this.state.leaderboardData.map((item, index) => {
-      return (
-        <Table.Row>
-          <Table.Cell textAlign='center'>
-            <p style={{fontSize:"12px", textOverflow:'ellipsis'}}>{item.account.slice(0,10)+"..."}</p>
-          </Table.Cell>
-          <Table.Cell textAlign='center'>
-            <p style={{fontSize:"12px"}}>{item.points}</p>
-          </Table.Cell>
-        </Table.Row>
-      );
-    });
-  }
-
   renderTopTags() {
     return (
       <Segment>
@@ -339,6 +261,22 @@ class HomePage extends Component {
           <Icon name="tags"/>Top 10 Tags
         </Header>
         {this.renderTag(this.state.topTags, "medium")}
+      </Segment>
+    );
+  }
+
+  renderAbout() {
+    return (
+      <Segment>
+        <Header as='h3' textAlign="center">
+          <Icon name="question"/>What Are Question Phases
+        </Header>
+        <span style={{fontSize: 18, color: 'red'}}>ANSWERING</span>
+        <p style={{fontSize: 15}}>You can submit answers but answers will not be shown</p>
+        <span style={{fontSize: 18, color: '#C9C633'}}>VOTING</span>
+        <p style={{fontSize: 15}}>You can only approve answers submitted</p>
+        <span style={{fontSize: 18, color: '#10EE44'}}>REWARDED</span>
+        <p style={{fontSize: 15}}>Someone has already earned the reward for the question</p>
       </Segment>
     );
   }
@@ -354,7 +292,7 @@ class HomePage extends Component {
         </Statistic.Group>
         <Statistic.Group horizontal color='yellow'>
           <Statistic>
-            <Statistic.Value>{this.state.leaderboardData.length}</Statistic.Value>
+            <Statistic.Value>{this.state.users}</Statistic.Value>
             <Statistic.Label>Active Users</Statistic.Label>
           </Statistic>
         </Statistic.Group>
@@ -386,45 +324,22 @@ class HomePage extends Component {
   }
 
   renderSortSettings() {
+    const options = ['Ascending Phase', 'Descending Phase', 'Ascending Answers',
+                     'Descending Answers', 'Ascending Rewards', 'Descending Rewards'];
     return (
       <span>
-        <Icon name='sort'/>Sort Questions By: {' '}
-        <Dropdown
-          inline
-          options={[
-          {
-            key: 'Ascending Phase',
-            text: 'Ascending Phase',
-            value: 0
-          },
-          {
-            key: 'Descending Phase',
-            text: 'Descending Phase',
-            value: 1
-          },
-          {
-            key: 'Ascending Answers',
-            text: 'Ascending Answers',
-            value: 2
-          },
-          {
-            key: 'Descending Answers',
-            text: 'Descending Answers',
-            value: 3
-          },
-          {
-            key: 'Ascending Rewards',
-            text: 'Ascending Rewards',
-            value: 4
-          },
-          {
-            key: 'Descending Rewards',
-            text: 'Descending Rewards',
-            value: 5
-          }
-          ]}
-          onChange={this.handleChange}
-        />
+        <Dropdown text='Sorting Questions' multiple>
+          <Dropdown.Menu>
+            <Dropdown.Header icon='filter' content='Sorting Options' />
+            <Dropdown.Menu scrolling>
+              {options.map((tag, index) => (
+                <Dropdown.Item key={index}
+                               text={tag}
+                               onClick={() => this.setState({ sortBy : index })}/>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown.Menu>
+        </Dropdown>
       </span>
     );
   }
@@ -433,7 +348,6 @@ class HomePage extends Component {
     const tagColours = ["red", "olive", "blue", "teal", "green"];
     return (
       <span>
-        <Icon name='filter'/>
         <Dropdown text='Filter Questions' multiple>
           <Dropdown.Menu>
             <Dropdown.Header icon='tags' content='Tag Label' />
@@ -453,7 +367,7 @@ class HomePage extends Component {
 
   renderQuestionLimitSettings() {
     return(
-      <Dropdown text='Questions To Show' multiple>
+      <Dropdown text='Viewing Limit' multiple>
         <Dropdown.Menu>
           <Dropdown.Header icon='list' content='Question Limit' />
           <Dropdown.Menu scrolling>
@@ -478,28 +392,19 @@ class HomePage extends Component {
           <Responsive fireOnMount getWidth={getWidthFactory(this.props.isMobileFromSSR)} minWidth={Responsive.onlyTablet.minWidth}>
             <Divider hidden/>
             <Grid centered>
-              <Grid.Column width={4}>
-                {this.renderLeaderBoard()}
-              </Grid.Column>
-              <Grid.Column width={8}>
+              <Grid.Column width={10}>
                 <Header as='h2' textAlign='center'>
-                    Questions Posted
+                    Questions Asked
                 </Header>
-                <Grid>
-                  <Grid.Column width={5}>
-                    {this.renderSortSettings()}
-                  </Grid.Column>
-                  <Grid.Column width={5}>
-                    {this.renderFilterSettings()}
-                    <Popup
-                        trigger={
-                            <Button circular icon='cancel' onClick={ () => Router.pushRoute(`/home`) }/>}
-                        content={"Clear Filter"} />
-                  </Grid.Column>
-                  <Grid.Column width={6}>
-                    {this.renderQuestionLimitSettings()}
-                  </Grid.Column>
-                </Grid>
+                <Segment textAlign='center'>
+                  {this.renderSortSettings()}
+                  {this.renderFilterSettings()}
+                  {this.renderQuestionLimitSettings()}
+                  <Button onClick={ () => {
+                      this.setState({ sortBy: ''});
+                      Router.pushRoute(`/home`);
+                  }}>Clear Fliter/Sort</Button>
+                </Segment>
                 <Table>
                   <Table.Header>
                     {this.renderQuestionHeader()}
@@ -512,6 +417,7 @@ class HomePage extends Component {
                 <div style={{ marginTop: 20 }}>Found {this.state.summaries.length} Item(s).</div>
               </Grid.Column>
               <Grid.Column width={3}>
+                {this.renderAbout()}
                 {this.renderQuestionStatistics()}
                 {this.renderTopTags()}
                 {this.renderBlockChainStatistics()}
@@ -524,15 +430,17 @@ class HomePage extends Component {
             <Grid centered>
               <Grid.Column>
                 <Header as='h2' textAlign='center'>
-                    Questions Posted
+                    Questions Asked
                 </Header>
-                {this.renderSortSettings()}
-                {this.renderFilterSettings()}
-                <Popup
-                    trigger={
-                        <Button circular icon='cancel' onClick={ () => Router.pushRoute(`/home`) }/>}
-                    content={"Clear Filter"} />
-                {this.renderQuestionLimitSettings()}
+                <Segment textAlign='center'>
+                  {this.renderSortSettings()}
+                  {this.renderFilterSettings()}
+                  {this.renderQuestionLimitSettings()}
+                </Segment>
+                <Button onClick={ () => {
+                    this.setState({ sortBy: ''});
+                    Router.pushRoute(`/home`);
+                }}>Clear Fliter/Sort</Button>
                 <Divider hidden/>
                 <List divided relaxed>
                   {this.renderMobileQuestionList()}

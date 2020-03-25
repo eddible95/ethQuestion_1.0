@@ -299,8 +299,8 @@ class NewQuestion extends Component {
                       <Header content='Posting New Question' />
                       <Modal.Content>
                         <p>
-                          Please Confirm the MetaMask Transaction Request to submit your Question to the Block-Chain Network.
-                          Upon successful submission, you will be redirected to the Home Page. This process might take awhile.
+                          System is submitting your question to the blockchain. Upon successful submission, you will be redirected to the Home Page.
+                          This process might take awhile.
                         </p>
                         <Loader active inline="centered">
                           Loading

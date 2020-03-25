@@ -14,7 +14,7 @@ class AccountIssueModal extends Component {
           <Header icon='ethereum' content='Loading Resources' />
           <Modal.Content>
             <Loader active inline="centered">
-              Loading Deployed Questions
+              Fetching Data From Blockchain
             </Loader>
           </Modal.Content>
         </Modal>

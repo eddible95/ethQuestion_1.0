@@ -24,7 +24,7 @@ if (typeof window !== 'undefined' && window.ethereum) {
   resolve(web3);
 } else {
   // Metamask not available
-  const provider = new Web3.providers.HttpProvider('http://192.168.86.21:8543');
+  const provider = new Web3.providers.HttpProvider('http://192.168.86.248:8543');
   web3 = new Web3(provider);
   console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
 }

@@ -18,7 +18,7 @@ class RegisterPage extends Component {
     emailAddress:'',
     password:'',
     loading: false,
-    resetting: false,
+    showKeys: false,
     errorMessage:''
   };
 
@@ -48,52 +48,31 @@ class RegisterPage extends Component {
           document.cookie = `wallet=${accounts[0]}; path=/`;
         } else {
           // Create a new Profile
-          let account = await web3.eth.accounts.create();
+          let wallet = await web3.eth.accounts.create();
           let hashedPassword = passwordHash.generate(this.state.password);
-          account = await web3.eth.personal.importRawKey(account['privateKey'].slice(2), this.state.password)
-          await web3.eth.personal.unlockAccount(account, this.state.password, 3600);
+          await web3.eth.personal.importRawKey(wallet['privateKey'].slice(2), this.state.password);
+          await web3.eth.personal.unlockAccount(wallet['address'], this.state.password, 3600);
           let logTransaction = logging("Credited 10 EQT(s) for first time User");
           await EthQuestionTokenSale.methods
           await factory.methods
           .createProfile(credentials._address, this.state.emailAddress, hashedPassword,
             EthQuestionToken._address, EthQuestionTokenSale._address, logTransaction)
           .send({
-              from: account,
+              from: wallet['address'],
               gasPrice: "0"
           });
-          document.cookie = `wallet=${account}; path=/`;
+          document.cookie = `wallet=${wallet['address']}; path=/`;
+          this.setState({ publicKey: wallet['address'], privateKey: wallet['privateKey'] })
         }
         document.cookie = `login=${true}; path=/`;
-        Router.pushRoute(`/home`); // Automatic redirect the user.
+        this.setState({ loading: false, showKeys: true });
       } else {
         this.setState({ errorMessage: "Invalid Email Address or Email Address Already In Used" });
         this.setState({ loading: false });
       }
     } catch (err) {
-      this.setState({ errorMessage: err.message + " If you have rejected second transaction, please click on reset account. Thereafter, redo the registration." });
+      this.setState({ errorMessage: err.message });
       this.setState({ loading: false });
-    }
-  }
-
-  onReset = async () => {
-    this.setState({ resetting: true, errorMessage: '' });
-    try {
-      const accounts = await web3.eth.getAccounts();
-      let validEmail = validate(this.state.emailAddress);
-      let emailNotExist = await credentials.methods.emailNotExist(this.state.emailAddress).call();
-      let ethWalletNotRegistered = await credentials.methods.ethWalletNotRegistered(accounts[0]).call();
-      if (validEmail && emailNotExist && ethWalletNotRegistered) {
-        // Delete Existing Mapping
-        await factory.methods
-        .deleteProfile(credentials._address, this.state.emailAddress)
-        .send({
-            from: accounts[0]
-        });
-        this.setState({ resetting: false });
-      }
-    } catch (err) {
-      this.setState({ errorMessage: err.message + " Please redo the resetting of account." });
-      this.setState({ resetting: false });
     }
   }
 
@@ -101,8 +80,8 @@ class RegisterPage extends Component {
     return(
       <Form error={!!this.state.errorMessage}>
         <Segment raised textAlign={"center"}>
-          A wallet will be created and linked to the NTU Email provided. The password will be used for unlocking of your
-          wallet for transactions and accessing of the system.
+          This will create a password-protected account using your NTU email address and have it linked to cryptocurrency wallet created
+          by the system.
         </Segment>
         <Form.Field>
           <label>NTU Student Email Address</label>
@@ -126,26 +105,28 @@ class RegisterPage extends Component {
           <Header content='Registering Your Email Address' />
           <Modal.Content>
             <p>
-              Please confirm the MetaMask transaction for creation of Profile and Registering of Email Address.
-              Upon confirming the requests, please hold on while the system completes the registration process...
+              Creating of password-protected account. Please wait...
             </p>
             <Loader active inline="centered">
               Registering Your Email
             </Loader>
           </Modal.Content>
         </Modal>
-        <Modal open={this.state.resetting} trigger={<Button primary onClick={this.onReset}>Reset</Button>} basic size='small'>
-          <Header content='Resetting Account' />
+        <Modal open={this.state.showKeys} basic size='small'>
+          <Header content='Wallet Information' />
           <Modal.Content>
-            <p>
-              Please confirm the MetaMask transaction for resetting of account registration.
-              Upon confirming the requests, please hold on while the system completes the resetting process...
-            </p>
-            <Loader active inline="centered">
-              Resetting Account Registration
-            </Loader>
+            WARNING: Never reveal your private key to anyone. These keys will be required for future access to
+            your wallet, please have it recorded down.
+            <p>Public Key: {this.state.publicKey}</p>
+            <p>Private Key: {this.state.privateKey}</p>
           </Modal.Content>
+          <Modal.Actions>
+            <Button color='green' onClick={ () => Router.pushRoute(`/home`) }>
+              <Icon name='checkmark' /> Okay
+            </Button>
+          </Modal.Actions>
         </Modal>
+        <Button primary onClick={() => Router.pushRoute(`/`)}>Go Back</Button>
       </Form>
     );
   }

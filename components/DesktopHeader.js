@@ -72,6 +72,14 @@ class DesktopHeader extends Component {
                   color='orange'
                 />
               </Link>
+              <Link route="/leaderboard">
+                <Menu.Item
+                  name='Leaderboard'
+                  icon='trophy'
+                  active = {this.props.page === 'Leaderboard'}
+                  color='orange'
+                />
+              </Link>
               {this.props.accountType == "Admin" ? <Link route="/admin">
                                                     <Menu.Item
                                                       name='Admin Options'

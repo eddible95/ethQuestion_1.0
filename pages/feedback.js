@@ -221,8 +221,8 @@ class FeedbackPage extends Component {
                 <Header content='Submitting Feedback' />
                 <Modal.Content>
                   <p>
-                    Please Confirm the MetaMask Transaction Request to submit your Feedback to the Block-Chain Network.
-                    Upon successful submission, you will be redirected to the Home Page. This process might take awhile.
+                    Please wait patiently as the system submits your feedback to the blockchain.
+                    Upon successful submission, you will be redirected to the Home Page.
                   </p>
                   <Loader active inline="centered">
                     Loading

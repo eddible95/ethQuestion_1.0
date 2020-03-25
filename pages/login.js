@@ -95,8 +95,8 @@ class LoginPage extends Component {
             </Segment>
           </Form>
           <Message>
-            Not yet registered your NTU Student Email to your Ethereum Account?
-            <Modal trigger={<a href="/register"> Register Now</a>} basic size='small'>
+            Hi there, first time here? Click here to
+            <Modal trigger={<a href="/register"> register</a>} basic size='small'>
               <Header icon='ethereum' content='Please Hang On While We Redirect You' />
               <Modal.Content>
                 <Loader active inline="centered">
@@ -123,6 +123,7 @@ class LoginPage extends Component {
               <Embed
                 id='pdRTt2QabOg'
                 source='youtube'
+                aspectRatio='16:9'
               />
             </Container>
           </React.Fragment>

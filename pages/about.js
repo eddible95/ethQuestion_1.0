@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Segment, Container, Divider, Header, Modal, Button, Loader, Embed } from 'semantic-ui-react';
+import { Segment, Container, Divider, Header, Modal, Button, Loader, Embed, Icon } from 'semantic-ui-react';
 import AccountIssueModal from '../components/AccountIssueModal';
 import Layout from '../components/Layout';
 import web3 from '../ethereum/web3';
@@ -47,96 +47,53 @@ class AboutPage extends Component {
         <Layout accountType={this.state.accountType} page={'About'}>
           <Container>
             <Divider hidden/>
-            <Segment raised textAlign='left'>
-              <Header as='h2' textAlign='center'>
-                SCSE19-0299: Block-Chain Based Question Answering System
+            <Segment raised>
+              <Header as='h2'textAlign='center'>
+                <Icon name='question'/>What Can I Do Here?
               </Header>
             </Segment>
             <Header as='h3' textAlign='left'>
-              Project Details
+              <Icon name='pencil alternate'/>Ask New Question
             </Header>
             <Divider />
             <p style={{fontSize:'16px'}}>
-              This is an experimental system for School Of Computer Science & Engineereing (SCSE) Final Year Project
-              titled SCSE19-0299.
-            </p>
-            <Header as='h3' textAlign='left'>
-              System Rules & Guidelines
-            </Header>
-            <Divider />
-            <p style={{fontSize:'16px'}}>
-              No posting of <b>Assignments </b> or <b>Tutorial Questions</b> is allowed.
+              You need to have at least <b> 1 EQT</b> as the reward for the question. If your question has no answers provided within the duration specified,
+              the reward will be returned to you. Do note that you cannot ask <b>Assignments </b> or <b>Tutorial Questions</b>.
               Fraudulent accounts will be <b>removed from the system and banned from future use</b>.
             </p>
             <Header as='h3' textAlign='left'>
-              Getting EthQuestionToken (EQT)
+              <Icon name='add'/>Answer Questions
             </Header>
             <Divider />
             <p style={{fontSize:'16px'}}>
-              EthQuestionToken (EQT) is a cryptocurrency that is used within the Question Answering System and can be exchanged using Ether(s).
-              Each user is given <b>10 EQTs</b> upon signing up. User can be rewarded additional EQTs by providing answers with the highest approvals
-              for each question. Additionally, user can exchange points earned through their participation on the system.
-              <b> 5 EQTs</b> for every <b>100 points</b> earned.
+              You can provide answers to questions asked by others on the Home page. Do note that you do not need to use any EQT
+              to provide an answer.
             </p>
-            <Divider hidden/>
-
-            <Divider hidden/>
-            <Segment raised textAlign='left'>
-              <Header as='h2' textAlign='center'>
-                Leaderboard
-              </Header>
-            </Segment>
             <Header as='h3' textAlign='left'>
-              Accumulating Points
+              <Icon name='thumbs up'/>Approving Answers
             </Header>
             <Divider />
             <p style={{fontSize:'16px'}}>
-              Points can be earned through the following ways:
+              You can approve answers provided for each question druing <b>Voting Phase</b> depending on its relevance and usefulness.
+              A deposit of <b>1 EQT</b> will be deducted for each answer you approve. The deposit will be returned to you only if
+              the answer you approved of is eventually awarded the reward. All forefited deposits will be distributed among other
+              users who approved the answer that is awarded.
             </p>
-            <p style={{fontSize:'16px'}}><b>Asking Question With Reward Awarded:</b> 5 Points</p>
-            <p style={{fontSize:'16px'}}><b>Answer Selected:</b> 4 Points</p>
-            <p style={{fontSize:'16px'}}><b>Submit Answer:</b> 2 Points</p>
-            <p style={{fontSize:'16px'}}><b>Approve Answer with Highest Approvals:</b> 2 Points</p>
-            <p style={{fontSize:'16px'}}><b>Approving An Answer:</b> 1 Point</p>
             <Divider hidden/>
-
             <Segment raised>
               <Header as='h2'textAlign='center'>
-                System Functionality
+                <Icon name='ethereum'/>What is EthQuestionToken (EQT)?
               </Header>
             </Segment>
-            <Header as='h3' textAlign='left'>
-              Ask New Question
-            </Header>
-            <Divider />
             <p style={{fontSize:'16px'}}>
-              Access using "<b>Ask Question</b>" tab above. Each creation of new question requires at least
-              <b> 1 EQT</b> as the reward. In the event that there are no answers provided within the duration specified,
-              the reward will be returned to the owner of the question.
+              Cryptocurrency that is used within the Question Answering System and can be exchanged using Ether(s).
+              Each user is given <b>10 EQTs</b> upon signing up. User can be rewarded additional EQTs by providing answers with the highest approvals
+              for each question. Exchange for EQTs <a href="/userProfile">here</a>.
             </p>
-            <Header as='h3' textAlign='left'>
-              Provide Answer To Question
-            </Header>
-            <Divider />
-            <p style={{fontSize:'16px'}}>
-              All questions posted can be view from the Home Page access via <b>"Home"</b> tab above. Clicking on the question title
-              will provide additional details on the question as well as providing the form to submit an answer for the question. No
-              EQT are required for answering of question.
-            </p>
-            <Header as='h3' textAlign='left'>
-              Approving Of Answers
-            </Header>
-            <Divider />
-            <p style={{fontSize:'16px'}}>
-              When the question is in the <b>"Voting Phase"</b>, all users can view all answers that are submitted and approve
-              each answer depending on its relevance and helpfulness. Each approval requires <b>1 EQT</b>. Each user can only
-              <b> approve each answer once</b>. After the "Voting Phase", users who approved the answer with the highest approvals
-              will have their <b>1 EQT</b> returned. Additionally, EQT from users who approve other answers would be distributed among
-              users who approved the answer with the highest approvals.
-            </p>
+            <Divider hidden/>
             <Segment raised>
               <Header as='h2' textAlign='center'>
-                User Guide
+                <Icon name='video'/>Watch For More
               </Header>
             </Segment>
             <Embed

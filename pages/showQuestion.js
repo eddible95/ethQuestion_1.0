@@ -452,13 +452,13 @@ class QuestionRow extends Component {
             <Table.Body>
               <Table.Row>
                 <Table.Cell width={2}>Question Title</Table.Cell>
-                <Table.Cell style={{fontSize: '20px', lineHeight: '1.5'}}>
+                <Table.Cell style={{fontSize: 20, lineHeight: '1.5'}}>
                     {summary[0]}
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell width={2}>Description</Table.Cell>
-                <Table.Cell style={{fontSize: '20px', lineHeight: '1.5'}}>
+                <Table.Cell style={{fontSize: 20, lineHeight: '1.5'}}>
                     <Context
                         input='tex'
                         onLoad={ () => console.log("Loaded MathJax script!") }
@@ -488,7 +488,7 @@ class QuestionRow extends Component {
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell>Reward (EQT)</Table.Cell>
-                  <Table.Cell style={{fontSize: '20px'}}>{summary[2]*1e-4}
+                  <Table.Cell style={{fontSize: 20}}>{summary[2]*1e-4}
                   {this.state.questionState == 0
                       ?  <Popup
                           trigger={
@@ -516,11 +516,11 @@ class QuestionRow extends Component {
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell>Publish Time</Table.Cell>
-                  <Table.Cell style={{fontSize: '20px'}}>{publishTime}</Table.Cell>
+                  <Table.Cell style={{fontSize: 20}}>{publishTime}</Table.Cell>
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell>Answering Duration (hours)</Table.Cell>
-                  <Table.Cell style={{fontSize: '20px'}}>
+                  <Table.Cell style={{fontSize: 20}}>
                       <span style={{verticalAlign: 'middle', lineHeight: '33px'}}>
                           {maxDuration}
                       </span>
@@ -575,7 +575,7 @@ class QuestionRow extends Component {
                   </Table.Row>
                   <Table.Row>
                     <Table.Cell>Voting Duration (hours)</Table.Cell>
-                    <Table.Cell style={{fontSize: '20px'}}>
+                    <Table.Cell style={{fontSize: 20}}>
                       <span style={{verticalAlign: 'middle', lineHeight: '33px'}}>
                           {maxDuration}
                       </span>
@@ -708,23 +708,14 @@ class QuestionRow extends Component {
     let fileHashes = this.state.summary[5];
     let fileNames = this.state.summary[6];
 
-    if (fileHashes.length == 0) {
-        return(
-            <Segment placeholder>
-                <Header icon>
-                    <Icon name='images outline' />
-                    No images are uploaded for this question
-                </Header>
-            </Segment>
-        );
-    } else {
+    if (fileHashes.length != 0) {
         return(
             <Segment placeholder>
                 <center>
                     <p>Image(s) Uploaded</p>
                     {fileNames.map((fileName, index) =>
                         <div style={{marginBottom: '10px'}} key={index}>
-                            <Image src={"https://ipfs.io/ipfs/"+fileHashes[index]} />
+                            <Image src={"https://ipfs.io/ipfs/"+fileHashes[index]} size='massive'/>
                             <Divider hidden/>
                             <p> To download: </p>
                             <Label as='a' size='big' href={"https://ipfs.io/ipfs/"+fileHashes[index]}>
@@ -763,13 +754,13 @@ class QuestionRow extends Component {
         <Form.Field>
           {this.renderFilesUpload(elmFiles)}
         </Form.Field>
-        <Modal open={this.state.loading} trigger={ this.state.questionState == 1 ? <Button content='Submit Answers' disabled labelPosition='left' icon='edit' primary />
-            : <Button content='Submit Answers' onClick={this.onSubmitAnswer} loading={this.state.loading} labelPosition='left' icon='edit' primary />} basic size='small'>
+        <Modal open={this.state.loading}
+               trigger={ <Button content='Submit Answers' onClick={this.onSubmitAnswer} loading={this.state.loading} labelPosition='left' icon='edit' primary />}
+               basic size='small'>
           <Header content='Posting New Answers' />
           <Modal.Content>
             <p>
-              Please Confirm the MetaMask Transaction Request to submit your Answers to the Block-Chain Network.
-              Upon successful submission, you will be redirected back to the Question Page. This process might take awhile.
+              Please wait patiently as the system is submitting your answer to the blockchain.
             </p>
             <Loader active inline="centered">
               Loading
@@ -784,18 +775,14 @@ class QuestionRow extends Component {
     let {files_array} = this.state;
     if(this.state.files_array.length == 0){
       return (
-        <Segment placeholder>
-          <Header icon>
-            <Icon name='images outline' />
-            No images are uploaded for this answer
-          </Header>
+        <Container>
           <input
               style={{ display: 'none' }}
               type='file'
               onChange={() => this.onFileSelected()}
               ref={fileInput => this.fileInput = fileInput}/>
           <Button primary onClick={() => this.fileInput.click()} loading={this.state.fileLoading}>Upload Image</Button>
-        </Segment>
+        </Container>
       )
     } else {
       return (
@@ -823,14 +810,28 @@ class QuestionRow extends Component {
           <Container>
             <Divider hidden/>
             {this.renderQuestion()}
-            <Divider />
+            <Divider hidden/>
             {this.renderFiles()}
-            <Header as='h2' textAlign='center'>
-                Submit Your Answers Here
-            </Header>
-            <p><b>Note:</b> To include math equations, delimit the latex format with $$.</p>
-            <a style={{display: "table-cell"}} href="https://www.codecogs.com/latex/eqneditor.php" target="_blank">Link to Supported Latex Editor</a>
-            {this.renderAnswersForm()}
+            {this.state.questionState == 1 ?
+              <Container>
+                <Header as='h2' textAlign='center'>
+                  Voting In Progress
+                </Header>
+                <p style={{textAlign:'center', fontSize: 20}}>No answers can be submitted</p>
+                <Divider/>
+              </Container>
+               :
+              <Header as='h2' textAlign='center'>
+                  Submit Your Answers Here
+              </Header>
+            }
+            {this.state.questionState == 1 ? null :
+              <Container>
+                <p><b>Note:</b> To include math equations, delimit the latex format with $$.</p>
+                <a style={{display: "table-cell"}} href="https://www.codecogs.com/latex/eqneditor.php" target="_blank">Link to Supported Latex Editor</a>
+              </Container>
+            }
+            {this.state.questionState == 1 ? null : this.renderAnswersForm()}
             <Button
               icon={this.state.sorted ? "sort numeric down" : "sort numeric up"}
               onClick={ () => { this.setState({ sorted: !this.state.sorted }) }}
@@ -870,32 +871,32 @@ class QuestionRow extends Component {
 
             <LoadingModal trigger={this.state.changeToVoting}
                           title={'Changing Question State to Voting Phase'}
-                          content={"Please Confirm the MetaMask Transaction Request to change question state to Voting Phase."}
+                          content={"Please wait patiently as the system changes your question state."}
                           loader={"Changing Question State"}/>
 
             <LoadingModal trigger={this.state.changeToRewarded}
                           title={'Changing Question State to Rewarded Phase'}
-                          content={"Please Confirm the MetaMask Transaction Request to change question state to Rewarded Phase."}
+                          content={"Please wait patiently as the system changes your question state."}
                           loader={"Changing Question State"}/>
 
             <LoadingModal trigger={this.state.timeExtension}
                           title={'Extending Question Deadline'}
-                          content={"Please Confirm the MetaMask Transaction Request to extend the duration of the question."}
+                          content={"Please wait patiently as the system extends the duration of your question."}
                           loader={"Extending Deadline"}/>
 
             <LoadingModal trigger={this.state.changeReward}
                           title={'Increasing Reward'}
-                          content={"Please Confirm the MetaMask Transaction Request to increase reward."}
+                          content={"Please wait patiently as the system increases the reward of your question."}
                           loader={"Increasing Reward"}/>
 
             <LoadingModal trigger={this.state.voting}
                           title={'Approving Answer'}
-                          content={"Please Confirm the MetaMask Transaction Request to approve an answer. You cannot change your choice upon submission."}
+                          content={"Please wait patiently as the system submits your approval."}
                           loader={"Approving"}/>
 
             <LoadingModal trigger={this.state.fixError}
                           title={'Fixing Balance Error'}
-                          content={"Please Confirm the MetaMask Transaction Request to fix the balance error."}
+                          content={"Please wait as the system fixes the balance error of your question."}
                           loader={"Fixing Balance"}/>
             <TimeOutModal timeout={this.state.timeout} />
           </Container>

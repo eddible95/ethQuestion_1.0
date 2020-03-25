@@ -14,6 +14,7 @@ routes
   .add('/new', '/newQuestion')
   .add('/questions/:value', '/showQuestion')
   .add('/search/:value', '/home')
+  .add('/leaderboard', '/leaderboard')
   .add('/register', '/register');
 
 module.exports = routes;

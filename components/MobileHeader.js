@@ -77,6 +77,12 @@ class HeaderMobile extends Component {
                 Feedback
               </a>
             </Link>
+            <Link route="/leaderboard">
+              <a className = "item">
+                <Icon name='trophy'/>
+                Leaderboard
+              </a>
+            </Link>
             {this.props.accountType == "Admin" ? <Link route="/admin">
                                                   <a className = "item">
                                                     <Icon name='settings'/>
