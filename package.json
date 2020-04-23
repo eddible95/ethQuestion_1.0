@@ -15,7 +15,6 @@
   "license": "ISC",
   "dependencies": {
     "es6-promise": "^4.2.5",
-    "ethereumjs-wallet": "^0.6.0",
     "fs": "0.0.1-security",
     "fs-extra": "^7.0.1",
     "fuse.js": "^3.4.5",
