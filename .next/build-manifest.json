@@ -11,15 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/admin": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
     "/home": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/leaderboard": [
+    "/showQuestion": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]
