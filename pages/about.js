@@ -74,7 +74,7 @@ class AboutPage extends Component {
             </Header>
             <Divider />
             <p style={{fontSize:'16px'}}>
-              You can approve answers provided for each question druing <b>Voting Phase</b> depending on its relevance and usefulness.
+              You can approve answers provided for each question during <b>Voting Phase</b> depending on its relevance and usefulness.
               A deposit of <b>1 EQT</b> will be deducted for each answer you approve. The deposit will be returned to you only if
               the answer you approved of is eventually awarded the reward. All forefited deposits will be distributed among other
               users who approved the answer that is awarded.
@@ -97,7 +97,7 @@ class AboutPage extends Component {
               </Header>
             </Segment>
             <Embed
-              id='pdRTt2QabOg'
+              id='jImWp6P62FQ'
               source='youtube'
             />
           </Container>

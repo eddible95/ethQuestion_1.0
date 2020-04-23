@@ -1,5 +1,8 @@
 import 'package:ethquestion/data_object/question.dart';
 import 'package:fuzzy/fuzzy.dart';
+import 'dart:convert';
+import 'package:crypto/crypto.dart';
+import 'dart:math';
 
 class Logger{
 
@@ -49,5 +52,30 @@ class FuzzySearch{
       ]),
     );
     return fuse.search(searchText);
+  }
+}
+
+class PasswordHash {
+  String generatePasswordHash(String password) {
+    // Password Hashing
+    var saltChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var saltCharsLength = saltChars.length;
+    var salt = '';
+    // Generate Random Salt of fixed length
+    Random random = new Random();
+    for (var i = 0; i<8; i++) {
+      int randomNumber = random.nextInt(saltCharsLength);
+      salt += saltChars[randomNumber];
+    }
+    var key = utf8.encode(salt);
+    var bytes = utf8.encode("password");
+
+    // HMAC-SHA1
+    var hmacSha1 = new Hmac(sha1, key);
+
+    // Convert to Hex String and format readable by JavaScript Verifier
+    var digest = hmacSha1.convert(bytes);
+    var hashedPassword = "sha1\$" + salt + "\$1\$" + digest.toString();
+    return hashedPassword;
   }
 }

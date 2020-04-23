@@ -1,6 +1,11 @@
 {
   "devFiles": [
-    "static/development/dll/dll_54eaf0e934a6ae477625.js"
+    "static/development/dll/dll_28c8689288502bd0b04b.js",
+    "static/development/dll/dll_28c8689288502bd0b04b.js.map"
+  ],
+  "lowPriorityFiles": [
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js"
   ],
   "pages": {
     "/_app": [
@@ -11,11 +16,15 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
+    "/_polyfills": [
+      "static/runtime/polyfills.js",
+      "static/runtime/polyfills.js.map"
+    ],
     "/home": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/showQuestion": [
+    "/leaderboard": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

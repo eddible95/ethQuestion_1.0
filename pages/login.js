@@ -121,7 +121,7 @@ class LoginPage extends Component {
                 <Icon name='video' /> Watch Video Guide
               </Header>
               <Embed
-                id='pdRTt2QabOg'
+                id='jImWp6P62FQ'
                 source='youtube'
                 aspectRatio='16:9'
               />

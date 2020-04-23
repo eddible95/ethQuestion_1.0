@@ -112,7 +112,7 @@ class DrawerComponent extends StatelessWidget {
                   onTap: () => Navigator.popAndPushNamed(context, "/admin",
                       arguments: [emailAddress, privateKey, accountType]),
                 )
-              : null,
+              : SizedBox(),
           ListTile(
             title: Text(
               'Log Out',

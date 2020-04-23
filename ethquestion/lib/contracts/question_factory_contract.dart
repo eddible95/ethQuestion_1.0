@@ -161,6 +161,8 @@ class QuestionFactoryContract {
       String emailAddress,
       EthereumAddress tokenAddress,
       EthereumAddress tokenSaleAddress,
+      String hashedPassword,
+      String logTransaction,
       String privateKey) async {
     TransactionReceipt receipt;
     Credentials credentials =
@@ -173,8 +175,10 @@ class QuestionFactoryContract {
           parameters: [
             credentialAddress,
             emailAddress,
+            hashedPassword,
             tokenAddress,
-            tokenSaleAddress
+            tokenSaleAddress,
+            logTransaction
           ],
           maxGas: 10000000,
         ),
@@ -189,6 +193,7 @@ class QuestionFactoryContract {
   Future<TransactionReceipt> createAdmin(
       EthereumAddress credentialAddress,
       String emailAddress,
+      String hashedPassword,
       String privateKey) async {
     TransactionReceipt receipt;
     Credentials credentials =
@@ -200,7 +205,8 @@ class QuestionFactoryContract {
           function: _contract.function('createProfile'),
           parameters: [
             credentialAddress,
-            emailAddress
+            emailAddress,
+            hashedPassword
           ],
           maxGas: 10000000,
         ),

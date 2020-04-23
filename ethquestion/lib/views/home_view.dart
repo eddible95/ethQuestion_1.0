@@ -33,11 +33,12 @@ class _HomeViewState extends State<HomeView> {
   int _questionLimit = 30;
   List<int> _questionLimitChoice = List<int>();
   Icon _currentIcon = Icon(Icons.search);
-  Widget _searchBarText = Text("Ethereum Question Answering System",
-      style: GoogleFonts.ubuntu(
-        textStyle: TextStyle(
-            fontSize: 16.0),
-      ),);
+  Widget _searchBarText = Text(
+    "Ethereum Question Answering System",
+    style: GoogleFonts.ubuntu(
+      textStyle: TextStyle(fontSize: 16.0),
+    ),
+  );
   QuestionFactoryContract _questionFactoryContract = QuestionFactoryContract();
   FuzzySearch _fuzzySearch = FuzzySearch();
 
@@ -127,8 +128,7 @@ class _HomeViewState extends State<HomeView> {
       this._searchBarText = Text(
         "Ethereum Question Answering System",
         style: GoogleFonts.ubuntu(
-          textStyle: TextStyle(
-              fontSize: 16.0),
+          textStyle: TextStyle(fontSize: 16.0),
         ),
       );
       _isSearching = false;

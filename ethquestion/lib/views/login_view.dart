@@ -231,7 +231,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
                   Text(
-                    'Not yet registered your NTU Student Email to your Ethereum Account?',
+                    'Hi there, first time here?',
                     textAlign: TextAlign.center,
                   ),
                   RichText(

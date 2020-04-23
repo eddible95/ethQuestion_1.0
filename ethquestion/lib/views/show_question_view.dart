@@ -900,27 +900,13 @@ class _ShowQuestionViewState extends State<ShowQuestionView> {
     return Column(
       children: <Widget>[
         _question.imageNames.length == 0
-            ? Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  MdiIcons.folderMultipleImage,
-                  size: 45.0,
-                ),
-              )
+            ? SizedBox()
             : Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text("Image(s) Uploaded"),
               ),
         _question.imageNames.length == 0
-            ? Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "No images are uploaded for this question",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              )
+            ? SizedBox()
             : _buildImages(_question.imageHashes)
       ],
     );
@@ -1001,21 +987,7 @@ class _ShowQuestionViewState extends State<ShowQuestionView> {
     return Column(
       children: <Widget>[
         _imageNameArray.length == 0
-            ? Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  MdiIcons.folderMultipleImage,
-                  size: 45.0,
-                ),
-              )
-            : SizedBox(),
-        _imageNameArray.length == 0
-            ? Text(
-                "No images are uploaded for this answer",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              )
+            ? SizedBox()
             : _imageNameArray.length == 0
                 ? Loader("Uploading Image")
                 : _buildImageChip(),
