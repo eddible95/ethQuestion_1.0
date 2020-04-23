@@ -175,6 +175,235 @@ class _LeaderboardViewState extends State<LeaderboardView> {
                         .toList(),
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Material(
+                    color: Colors.white,
+                    elevation: 5.0,
+                    shadowColor: Color(0x802196F3),
+                    child: Center(
+                      heightFactor: 2.0,
+                      child: Text(
+                        'How are points awarded?',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 18.0, right: 18.0, bottom: 4.0),
+                  child: Container(
+                    child: RichText(
+                      text: TextSpan(
+                        style: GoogleFonts.ubuntu(
+                          textStyle: TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: "When you ask a question: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(text: "5 Points"),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 18.0, right: 18.0, bottom: 4.0),
+                  child: Container(
+                    child: RichText(
+                      text: TextSpan(
+                        style: GoogleFonts.ubuntu(
+                          textStyle: TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: "When you are rewarded for your answer: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(text: "4 Points"),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 18.0, right: 18.0, bottom: 4.0),
+                  child: Container(
+                    child: RichText(
+                      text: TextSpan(
+                        style: GoogleFonts.ubuntu(
+                          textStyle: TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: "When you submit an answer: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(text: "2 Points"),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 18.0, right: 18.0, bottom: 4.0),
+                  child: Container(
+                    child: RichText(
+                      text: TextSpan(
+                        style: GoogleFonts.ubuntu(
+                          textStyle: TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: "When the answer you approved gets awarded: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(text: "2 Points"),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 18.0, right: 18.0, bottom: 4.0),
+                  child: Container(
+                    child: RichText(
+                      text: TextSpan(
+                        style: GoogleFonts.ubuntu(
+                          textStyle: TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: "When you approve an answer: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(text: "1 Point"),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Material(
+                    color: Colors.white,
+                    elevation: 5.0,
+                    shadowColor: Color(0x802196F3),
+                    child: Center(
+                      heightFactor: 2.0,
+                      child: Text(
+                        'What can I do with my points?',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 18.0, right: 18.0, bottom: 4.0),
+                  child: Container(
+                    child: RichText(
+                      text: TextSpan(
+                        style: GoogleFonts.ubuntu(
+                          textStyle: TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(text: "Upon reaching "),
+                          TextSpan(
+                            text: "100 Points, ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(text: "you can exchange for "),
+                          TextSpan(
+                            text: "5 EQTs.",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Material(
+                    color: Colors.white,
+                    elevation: 5.0,
+                    shadowColor: Color(0x802196F3),
+                    child: Center(
+                      heightFactor: 2.0,
+                      child: Text(
+                        'What is EthQuestionToken (EQT)?',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 18.0, right: 18.0, bottom: 4.0),
+                  child: Container(
+                    child: RichText(
+                      text: TextSpan(
+                        style: GoogleFonts.ubuntu(
+                          textStyle: TextStyle(
+                            fontSize: 13,
+                            color: Colors.black,
+                          ),
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                              text:
+                                  "Cryptocurrency that is used within the Question Answering System and can be exchanged using Ether(s). Each user is given "),
+                          TextSpan(
+                            text: "10 EQTs ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                              text:
+                                  "upon signing up. User can be rewarded additional EQTs by providing answers with the highest approvals for each question."),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
               ],
             ),
     );

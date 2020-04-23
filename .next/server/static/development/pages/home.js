@@ -886,7 +886,7 @@ __webpack_require__.r(__webpack_exports__);
 // Imports Web3 API
 
 let web3;
-const provider = new web3__WEBPACK_IMPORTED_MODULE_0___default.a.providers.HttpProvider('http://192.168.86.248:8543');
+const provider = new web3__WEBPACK_IMPORTED_MODULE_0___default.a.providers.HttpProvider('http://127.0.0.1:8543');
 web3 = new web3__WEBPACK_IMPORTED_MODULE_0___default.a(provider);
 /* harmony default export */ __webpack_exports__["default"] = (web3);
 

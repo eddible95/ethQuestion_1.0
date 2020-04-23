@@ -308,6 +308,8 @@ class _RegisterViewState extends State<RegisterView> {
                           children: <Widget>[
                             _buildEmail(),
                             SizedBox(height: 10),
+                            _buildPassword(),
+                            SizedBox(height: 10),
                             Padding(
                               padding: const EdgeInsets.only(left: 40.0, bottom: 10.0),
                               child: RichText(
@@ -322,8 +324,6 @@ class _RegisterViewState extends State<RegisterView> {
                             _buildPrivateKey(),
                             SizedBox(height: 10),
                             _buildParaphrase(),
-                            SizedBox(height: 10),
-                            _buildPassword(),
                             SizedBox(height: 10),
                             RaisedButton(
                               color: Colors.blue,

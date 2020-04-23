@@ -343,21 +343,7 @@ class _NewQuestionViewState extends State<NewQuestionView> {
     return Column(
       children: <Widget>[
         _imageNameArray.length == 0
-            ? Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  MdiIcons.folderMultipleImage,
-                  size: 45.0,
-                ),
-              )
-            : SizedBox(),
-        _imageNameArray.length == 0
-            ? Text(
-                "No images are uploaded for this question",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              )
+            ? SizedBox()
             : _imageNameArray.length == 0
                 ? Loader("Uploading Image")
                 : _buildImageChip(),
