@@ -37,6 +37,7 @@ class RegisterPage extends Component {
       if (validEmail && !emailNotExist) {
         if(this.state.emailAddress === "admin") {
           const accounts = await web3.eth.getAccounts();
+          await web3.eth.personal.unlockAccount(accounts[0], this.state.password, 3600);
           let hashedPassword = passwordHash.generate(this.state.password);
           await factory.methods
           // Create Admin
