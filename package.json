@@ -23,7 +23,7 @@
     "jspdf": "^1.5.3",
     "mobile-detect": "^1.4.3",
     "mocha": "^5.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "next": "^9.3.5",
     "next-cookies": "^2.0.3",
     "next-routes": "^1.4.2",
