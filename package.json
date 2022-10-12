@@ -20,7 +20,7 @@
     "fuse.js": "^3.4.5",
     "ganache-cli": "^6.2.5",
     "ipfs-http-client": "^32.0.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.5.1",
     "mobile-detect": "^1.4.3",
     "mocha": "^5.2.0",
     "moment": "^2.24.0",
